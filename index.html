@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schöneweider KiezKarte — Eine Karte. Ihr Vorteil. Unser Kiez.</title>
+<meta name="description" content="Die Schöneweider KiezKarte verbindet lokale Kaufkraft mit einem Bürgerfonds für Kultur, Open-Air-Kino und Nachbarschaft. Mitmach-Aufruf an Selbstständige & Unternehmen in Schöneweide.">
+<meta property="og:title" content="Schöneweider KiezKarte">
+<meta property="og:description" content="Eine Karte. Ihr Vorteil. Unser Kiez. Mitmachen ab 4. Juli 2026.">
+<meta property="og:type" content="website">
+<style>
+  *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --ink: #1A1A1A;
+    --ink-soft: #4A4A4A;
+    --ink-mute: #8A8A8A;
+    --rule: #E5DFD3;
+    --cream: #FAF7F2;
+    --cream-deep: #F2EDE2;
+    --red: #D72E1F;
+    --red-deep: #A8240F;
+    --maxw: 1080px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Holo-Bar als visuelle Signatur */
+  .holo {
+    height: 5px;
+    background: linear-gradient(90deg,
+      #5B3FA8 0%, #B72E94 22%, #D72E1F 44%,
+      #E9B340 64%, #137F7F 84%, #5B3FA8 100%);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .container {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Top-Bar mit Logos */
+  .topbar {
+    padding: 18px 0 14px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .topbar-logos {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .topbar img.logo-is { height: 36px; width: auto; }
+  .topbar img.logo-werk { height: 24px; width: auto; }
+  .topbar-cta {
+    display: inline-block;
+    padding: 9px 18px;
+    background: var(--ink);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background 0.15s;
+  }
+  .topbar-cta:hover { background: var(--red); }
+
+  /* Eyebrow */
+  .eyebrow {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--red);
+    font-weight: 800;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 56px 0 40px;
+  }
+  .hero .eyebrow { margin-bottom: 18px; }
+  .hero h1 {
+    font-size: clamp(36px, 8vw, 76px);
+    line-height: 0.98;
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    margin-bottom: 24px;
+  }
+  .hero h1 .red { color: var(--red); }
+  .hero .sub {
+    font-size: clamp(16px, 2.4vw, 21px);
+    color: var(--ink-soft);
+    max-width: 760px;
+    margin-bottom: 36px;
+    line-height: 1.5;
+  }
+  .hero .sub b { color: var(--ink); font-weight: 700; }
+  .hero-card-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+  }
+  .hero-card {
+    width: 100%;
+    max-width: 560px;
+    border-radius: 18px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+  }
+  .hero-meta {
+    margin-top: 28px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-mute);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .hero-meta b { color: var(--red); font-weight: 800; }
+
+  /* Section */
+  section.section {
+    padding: 56px 0;
+    border-top: 1px solid var(--rule);
+  }
+  section.section h2 {
+    font-size: clamp(28px, 5vw, 44px);
+    line-height: 1.0;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+  }
+  section.section h2 .red { color: var(--red); }
+  section.section .lede {
+    font-size: clamp(15px, 2vw, 18px);
+    color: var(--ink-soft);
+    max-width: 720px;
+    margin-bottom: 36px;
+  }
+  section.section .lede b { color: var(--ink); font-weight: 700; }
+  section.section .eyebrow { margin-bottom: 14px; }
+
+  /* So funktioniert's */
+  .steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 720px) {
+    .steps { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  }
+  .step {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 28px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .step .dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--red);
+    color: #fff;
+    font-weight: 800;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step h3 {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+  .step p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  /* Stats */
+  .stats {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 18px;
+  }
+  @media (min-width: 720px) {
+    .stats { grid-template-columns: repeat(3, 1fr); gap: 0; }
+    .stats > div { padding: 0 24px; border-left: 1px solid var(--rule); }
+    .stats > div:first-child { padding-left: 0; border-left: 0; }
+  }
+  .stat .num {
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 900;
+    color: var(--red);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .stat .num .dark { color: var(--ink); }
+  .stat .cap {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .stat .cap b { color: var(--ink); font-weight: 700; }
+
+  /* Story-Box */
+  .story {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    padding: 36px 32px 32px;
+    position: relative;
+  }
+  .story .tag {
+    position: absolute;
+    top: -14px;
+    left: 28px;
+    background: var(--red);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    padding: 6px 12px;
+    border-radius: 6px;
+  }
+  .story h3 {
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 800;
+    line-height: 1.18;
+    margin: 6px 0 18px;
+  }
+  .story p {
+    font-size: 16px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .story p:last-child { margin-bottom: 0; }
+  .story p b { color: var(--ink); font-weight: 700; }
+
+  /* Modelle */
+  .models {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 760px) {
+    .models { grid-template-columns: 1fr 1fr; gap: 28px; }
+  }
+  .model {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-top: 4px solid var(--red);
+    border-radius: 0 0 12px 12px;
+    padding: 28px 28px 32px;
+  }
+  .model .tag {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+  .model h4 {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .model .examples {
+    font-size: 13px;
+    color: var(--ink-mute);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .model .deal {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 18px;
+  }
+  .model .deal b { color: var(--ink); font-weight: 700; }
+  .model .nutzen-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--ink);
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  .model ul { list-style: none; }
+  .model ul li {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 6px;
+  }
+  .model ul li::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--red);
+    font-weight: 800;
+  }
+
+  /* CTA Section */
+  section.section.cta-section {
+    background: var(--ink);
+    color: #fff;
+    border-top: none;
+  }
+  section.section.cta-section h2 { color: #fff; }
+  section.section.cta-section .lede { color: rgba(255,255,255,0.78); }
+  section.section.cta-section .lede b { color: #fff; }
+  section.section.cta-section .eyebrow { color: #FF8676; }
+  .cta-box {
+    background: #fff;
+    color: var(--ink);
+    border-radius: 16px;
+    padding: 36px 32px;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  @media (min-width: 720px) {
+    .cta-box { flex-direction: row; align-items: center; }
+  }
+  .cta-box-text { flex: 1; }
+  .cta-box h3 {
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .cta-box p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+  .cta-box .pw {
+    background: var(--cream-deep);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 14px;
+    color: var(--ink);
+    margin-left: 4px;
+  }
+  .cta-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--red);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 800;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .cta-btn:hover { background: var(--red-deep); transform: translateY(-1px); }
+  .cta-btn:active { transform: translateY(0); }
+
+  /* Kontakt */
+  .contacts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 18px;
+  }
+  @media (min-width: 720px) {
+    .contacts { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  .contact {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 28px;
+  }
+  .contact .role {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--ink-mute);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .contact h4 {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .contact .org {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .contact a {
+    display: block;
+    font-size: 14px;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 4px 0;
+  }
+  .contact a:hover { color: var(--red); text-decoration: underline; }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 40px 0 32px;
+    margin-top: 24px;
+  }
+  .footer-row {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    text-align: center;
+  }
+  @media (min-width: 720px) {
+    .footer-row { flex-direction: row; justify-content: space-between; text-align: left; }
+  }
+  .footer-logos {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .footer-logos img.logo-is { height: 44px; }
+  .footer-logos img.logo-werk { height: 28px; }
+  .footer-info {
+    font-size: 12px;
+    color: var(--ink-mute);
+    letter-spacing: 0.05em;
+    line-height: 1.6;
+  }
+  .footer-info b { color: var(--ink-soft); font-weight: 700; }
+  .footer-slogan {
+    color: var(--red);
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+</style>
+</head>
+<body>
+
+<div class="holo"></div>
+
+<div class="container">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-logos">
+      <img class="logo-is" src="industriesalon_logo.png" alt="Industriesalon Schöneweide">
+      <img class="logo-werk" src="werk116_logo.png" alt="WERK 116">
+    </div>
+    <a class="topbar-cta" href="https://www.werk116.de/mwk-tn">Mitmachen →</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">Schöneweider KiezKarte · Mitmach-Aufruf</div>
+    <h1>Eine Karte.<br>Ihr Vorteil.<br><span class="red">Unser Kiez.</span></h1>
+    <p class="sub">
+      Die Schöneweider KiezKarte verbindet <b>lokale Kaufkraft</b> mit einem
+      <b>Bürgerfonds</b> für Kultur, Open-Air-Kino und Nachbarschaft.
+      Eine Karte, zwei Effekte — Sie gewinnen Kund:innen, Schöneweide gewinnt mit.
+    </p>
+    <div class="hero-card-wrap">
+      <img class="hero-card" src="kiezkarte.png" alt="Die Schöneweider KiezKarte mit Kaisersteg-Motiv">
+    </div>
+    <div class="hero-meta">
+      Pilotstart <b>4. Juli 2026</b> · Brückenfest Schöneweide
+    </div>
+  </section>
+
+  <!-- WIE ES FUNKTIONIERT -->
+  <section class="section" id="mechanik">
+    <div class="eyebrow">Wie es funktioniert</div>
+    <h2>Eine Karte, <span class="red">zwei Effekte.</span></h2>
+    <p class="lede">
+      Kund:innen kaufen die KiezKarte und sparen bei allen Partnerbetrieben in Schöneweide.
+      Die Hälfte des Verkaufspreises fließt in einen <b>Bürgerfonds</b>, der Projekte
+      im Stadtteil finanziert.
+    </p>
+    <div class="steps">
+      <div class="step">
+        <div class="dot">1</div>
+        <h3>Kund:in kauft die Karte</h3>
+        <p>50 € im Pilotjahr, 100 € ab 2027 — gilt zwölf Monate.</p>
+      </div>
+      <div class="step">
+        <div class="dot">2</div>
+        <h3>10 % Rabatt bei Partnerbetrieben</h3>
+        <p>Karteninhaber:innen sparen bei allen Partnerbetrieben in Schöneweide.</p>
+      </div>
+      <div class="step">
+        <div class="dot">3</div>
+        <h3>50 % fließen in den Bürgerfonds</h3>
+        <p>Für Open-Air-Kino, Brückenfest, Kultur und Nachbarschaftsprojekte.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZAHLEN -->
+  <section class="section" id="zahlen">
+    <div class="eyebrow">Die Zahlen</div>
+    <h2>Was die Bürger:innen sagen.</h2>
+    <p class="lede">
+      Eine Befragung von 180 Schöneweider:innen im Frühjahr 2026 zeigt:
+      die Bereitschaft mitzumachen ist hoch.
+    </p>
+    <div class="stats">
+      <div class="stat">
+        <div class="num">93 %</div>
+        <div class="cap">der <b>180 befragten Schöneweider:innen</b> würden die Karte kaufen.</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span class="dark">15</span></div>
+        <div class="cap"><b>Partnerbetriebe</b> zum Pilotstart am 4. Juli 2026.</div>
+      </div>
+      <div class="stat">
+        <div class="num">50 %</div>
+        <div class="cap">jeder verkauften Karte gehen direkt in den <b>Bürgerfonds</b>.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEST PRACTICE -->
+  <section class="section" id="beispiel">
+    <div class="story">
+      <div class="tag">BEISPIEL — WOFÜR IHR BEITRAG ARBEITET</div>
+      <h3>Das Open-Air-Kino am Spreeufer.</h3>
+      <p>
+        <b>Sommer 2027, Wilhelminenhofstraße.</b>
+        Auf der Wiese am Wasser laufen abends Filme bis Mitternacht. Eintritt frei.
+        Familien, Studierende, Nachbarschaft — alle da.
+      </p>
+      <p>
+        Finanziert wird das Kino aus dem <b>Bürgerfonds Schöneweide</b> — gespeist aus
+        50 % jeder verkauften KiezKarte. Wer als Betrieb mitmacht, ermöglicht solche
+        Abende und steht mit Logo auf den Plakaten, der Webseite und im Programmheft.
+        Sichtbarkeit ohne zusätzliches Werbebudget.
+      </p>
+    </div>
+  </section>
+
+  <!-- MODELLE -->
+  <section class="section" id="beteiligung">
+    <div class="eyebrow">Beteiligung in zwei Modellen</div>
+    <h2>Was es <span class="red">Ihrem Geschäft</span> bringt.</h2>
+    <p class="lede">
+      Zwei Modelle — eines für Betriebe mit Publikumsverkehr, eines für Dienstleister
+      ohne Laufkundschaft. Wählen Sie, was zu Ihrem Geschäft passt.
+    </p>
+    <div class="models">
+      <div class="model">
+        <div class="tag">Modell A · Mit Publikumsverkehr</div>
+        <h4>10 % Rabatt für Karteninhaber:innen</h4>
+        <div class="examples">Café · Buchladen · Frisör · Praxis · Studio · Restaurant · Werkstatt</div>
+        <div class="deal">
+          Sie gewähren <b>10 % Rabatt</b> auf Ihren Standard-Preis. Kein Mitgliedsbeitrag,
+          keine laufenden Kosten.
+        </div>
+        <div class="nutzen-title">Ihr Nutzen</div>
+        <ul>
+          <li>Sichtbarkeit im wachsenden Zukunftsort Schöneweide</li>
+          <li>Gemeinsame Marketingaktionen (online &amp; offline) — ohne zusätzlichen wirtschaftlichen Aufwand</li>
+          <li>Kundenbindung und sichtbares Engagement für den Standort</li>
+          <li>Frühe Positionierung als Partner eines Modells mit Perspektive</li>
+        </ul>
+      </div>
+
+      <div class="model">
+        <div class="tag">Modell B · Ohne Laufkundschaft</div>
+        <h4>Jahresbeitrag 500 € — oder 1.000 € Premium</h4>
+        <div class="examples">Beratung · Agentur · Architekturbüro · Coach · Künstler:in · Kreativbetrieb</div>
+        <div class="deal">
+          <b>500 €</b> als Standard-Partner, <b>1.000 €</b> als Premium-Partner mit
+          prominenterer Sichtbarkeit auf Karte, Webseite und in Veranstaltungs-Programmen.
+        </div>
+        <div class="nutzen-title">Ihr Nutzen</div>
+        <ul>
+          <li>Sichtbarkeit auf der KiezKarte, Webseite und bei Veranstaltungen</li>
+          <li>Positionierung als engagierter lokaler Partner Schöneweides</li>
+          <li>Teilnahme an einem konkreten, öffentlich wirksamen Projekt</li>
+          <li>Beitrag zum Bürgerfonds — Kultur, Nachbarschaft, Standortentwicklung</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section" id="mitmachen">
+    <div class="eyebrow">So einfach machen Sie mit</div>
+    <h2>Jetzt unter den ersten <span style="color: #FF8676;">15 Partnern</span> dabei sein.</h2>
+    <p class="lede">
+      Pilotstart der Schöneweider KiezKarte ist der <b>4. Juli 2026 zum Brückenfest</b>.
+      Anmeldung online — zehn Minuten Aufwand.
+    </p>
+    <div class="cta-box">
+      <div class="cta-box-text">
+        <h3>Anmeldeformular für Partnerbetriebe</h3>
+        <p>
+          Online-Formular von WERK 116 — passwortgeschützt, damit es nicht zufällig
+          gefunden wird. Passwort: <span class="pw">swdmwk2026</span>
+        </p>
+      </div>
+      <a class="cta-btn" href="https://www.werk116.de/mwk-tn">Jetzt anmelden →</a>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="section" id="kontakt">
+    <div class="eyebrow">Rückfragen</div>
+    <h2>Wer hinter der KiezKarte steht.</h2>
+    <p class="lede">
+      Eine Initiative von Industriesalon Schöneweide und WERK 116.
+      Idee von Dirk Sarnoch — ausgezeichnet mit dem Jurypreis des 1. Schöneweider Zukunftspreises.
+    </p>
+    <div class="contacts">
+      <div class="contact">
+        <div class="role">Idee &amp; Anmeldung</div>
+        <h4>Dirk Sarnoch</h4>
+        <div class="org">WERK 116 — Buchhandlung am Königsplatz</div>
+        <a href="mailto:post@werk116.de">post@werk116.de</a>
+        <a href="tel:+4930537808-46">030 – 537 808 46</a>
+      </div>
+      <div class="contact">
+        <div class="role">Verein &amp; Trägerschaft</div>
+        <h4>Klaus Burmeister</h4>
+        <div class="org">Industriesalon Schöneweide e.V.</div>
+        <a href="mailto:k.burmeister@industriesalon.de">k.burmeister@industriesalon.de</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-row">
+      <div class="footer-logos">
+        <img class="logo-is" src="industriesalon_logo.png" alt="Industriesalon Schöneweide">
+        <img class="logo-werk" src="werk116_logo.png" alt="WERK 116">
+      </div>
+      <div class="footer-info">
+        Eine Initiative von <b>Industriesalon Schöneweide</b> &amp; <b>WERK 116</b><br>
+        Idee: <b>Dirk Sarnoch</b> · Jurypreis 1. Schöneweider Zukunftspreise
+      </div>
+      <div class="footer-slogan">Eine Karte. Ihr Vorteil. Unser Kiez.</div>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
