@@ -33,6 +33,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* Holo-Bar als visuelle Signatur */
   .holo {
     height: 5px;
     background: linear-gradient(90deg,
@@ -49,6 +50,7 @@
     padding: 0 24px;
   }
 
+  /* Top-Bar mit Logos */
   .topbar {
     padding: 18px 0 14px;
     border-bottom: 1px solid var(--rule);
@@ -77,6 +79,7 @@
   }
   .topbar-cta:hover { background: var(--red); }
 
+  /* Eyebrow */
   .eyebrow {
     font-size: 12px;
     text-transform: uppercase;
@@ -85,7 +88,10 @@
     font-weight: 800;
   }
 
-  .hero { padding: 56px 0 40px; position: relative; }
+  /* HERO */
+  .hero {
+    padding: 56px 0 40px;
+  }
   .hero .eyebrow { margin-bottom: 18px; }
   .hero h1 {
     font-size: clamp(36px, 8vw, 76px);
@@ -124,18 +130,7 @@
   }
   .hero-meta b { color: var(--red); font-weight: 800; }
 
-  .hero-badge {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 96px;
-    height: 96px;
-  }
-  @media (min-width: 720px) {
-    .hero-badge { width: 120px; height: 120px; }
-  }
-  .hero-badge img { width: 100%; height: 100%; }
-
+  /* Section */
   section.section {
     padding: 56px 0;
     border-top: 1px solid var(--rule);
@@ -157,6 +152,7 @@
   section.section .lede b { color: var(--ink); font-weight: 700; }
   section.section .eyebrow { margin-bottom: 14px; }
 
+  /* So funktioniert's — eine Box mit Header und 3 Schritten */
   .steps-box {
     background: #fff;
     border: 1px solid var(--rule);
@@ -192,7 +188,10 @@
     justify-content: center;
     flex-shrink: 0;
   }
-  .step-row .stext { flex: 1; padding-top: 4px; }
+  .step-row .stext {
+    flex: 1;
+    padding-top: 4px;
+  }
   .step-row .stext h3 {
     font-size: 17px;
     font-weight: 800;
@@ -205,6 +204,7 @@
     line-height: 1.5;
   }
 
+  /* Stats */
   .stats {
     background: #fff;
     border: 1px solid var(--rule);
@@ -236,6 +236,7 @@
   }
   .stat .cap b { color: var(--ink); font-weight: 700; }
 
+  /* Geld-Beispiel-Box — robustes Layout */
   .geldbox-wrap {
     background: #fff;
     border: 1px solid var(--rule);
@@ -257,7 +258,10 @@
     flex-wrap: wrap;
     gap: 28px;
   }
-  .geldbox-item { flex: 1 1 240px; min-width: 0; }
+  .geldbox-item {
+    flex: 1 1 240px;
+    min-width: 0;
+  }
   .geldbox-item .num {
     font-size: 36px;
     font-weight: 900;
@@ -283,6 +287,21 @@
     padding-top: 16px;
   }
 
+  /* Jurypreis-Badge im Hero */
+  .hero { position: relative; }
+  .hero-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 96px;
+    height: 96px;
+  }
+  @media (min-width: 720px) {
+    .hero-badge { width: 120px; height: 120px; }
+  }
+  .hero-badge img { width: 100%; height: 100%; }
+
+  /* FAQ */
   .faq-list {
     display: grid;
     grid-template-columns: 1fr;
@@ -310,6 +329,7 @@
   }
   .faq-item p b { color: var(--ink); font-weight: 700; }
 
+  /* Story-Box */
   .story {
     background: #fff;
     border: 1px solid var(--rule);
@@ -344,6 +364,7 @@
   .story p:last-child { margin-bottom: 0; }
   .story p b { color: var(--ink); font-weight: 700; }
 
+  /* Modelle */
   .models {
     display: grid;
     grid-template-columns: 1fr;
@@ -412,6 +433,7 @@
     font-weight: 800;
   }
 
+  /* CTA Section */
   section.section.cta-section {
     background: var(--ink-box);
     color: #fff;
@@ -440,6 +462,15 @@
     .cta-box { flex-direction: row; align-items: center; }
   }
   .cta-box-text { flex: 1; }
+  .cta-box-qr {
+    width: 110px;
+    height: 110px;
+    background: #fff;
+    padding: 8px;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+  .cta-box-qr img { width: 100%; height: 100%; object-fit: contain; }
   .cta-box h3 {
     font-size: clamp(20px, 3vw, 26px);
     font-weight: 800;
@@ -451,6 +482,15 @@
     color: var(--ink-soft);
     line-height: 1.55;
     margin-bottom: 16px;
+  }
+  .cta-box .pw {
+    background: var(--cream-deep);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 14px;
+    color: var(--ink);
+    margin-left: 4px;
   }
   .cta-btn {
     display: inline-block;
@@ -466,6 +506,7 @@
   .cta-btn:hover { background: var(--red-deep); transform: translateY(-1px); }
   .cta-btn:active { transform: translateY(0); }
 
+  /* Kontakt */
   .contacts {
     display: grid;
     grid-template-columns: 1fr;
@@ -509,6 +550,7 @@
   }
   .contact a:hover { color: var(--red); text-decoration: underline; }
 
+  /* Footer */
   footer {
     border-top: 1px solid var(--rule);
     padding: 40px 0 32px;
@@ -545,6 +587,20 @@
     font-weight: 800;
     letter-spacing: -0.01em;
   }
+  .footer-legal {
+    border-top: 1px solid var(--rule);
+    margin-top: 28px;
+    padding-top: 18px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-mute);
+  }
+  .footer-legal a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    margin: 0 12px;
+  }
+  .footer-legal a:hover { color: var(--red); text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -553,6 +609,7 @@
 
 <div class="container">
 
+  <!-- TOPBAR -->
   <header class="topbar">
     <div class="topbar-logos">
       <img class="logo-is" src="industriesalon_logo.png" alt="Industriesalon Schöneweide">
@@ -561,6 +618,7 @@
     <a class="topbar-cta" href="#mitmachen">Mitmachen →</a>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-badge">
       <img src="jurypreis_badge.png" alt="Jurypreis 1. Schöneweider Zukunftspreise">
@@ -580,6 +638,7 @@
     </div>
   </section>
 
+  <!-- WIE ES FUNKTIONIERT -->
   <section class="section" id="mechanik">
     <div class="eyebrow">Wie es funktioniert</div>
     <h2>Eine Karte, <span class="red">zwei Effekte.</span></h2>
@@ -614,6 +673,7 @@
     </div>
   </section>
 
+  <!-- ZAHLEN -->
   <section class="section" id="zahlen">
     <div class="eyebrow">Die Zahlen</div>
     <h2>Was die Bürger:innen sagen.</h2>
@@ -637,6 +697,7 @@
     </div>
   </section>
 
+  <!-- GELD-BEISPIEL -->
   <section class="section" id="geldbeispiel">
     <div class="eyebrow">Was 50 % bedeuten</div>
     <h2>Konkret: <span class="red">Was kommt im Bürgerfonds an?</span></h2>
@@ -662,6 +723,7 @@
     </div>
   </section>
 
+  <!-- BEST PRACTICE -->
   <section class="section" id="beispiel">
     <div class="story">
       <div class="tag">BEISPIEL — WOFÜR IHR BEITRAG ARBEITET</div>
@@ -680,6 +742,7 @@
     </div>
   </section>
 
+  <!-- MODELLE -->
   <section class="section" id="beteiligung">
     <div class="eyebrow">Beteiligung in zwei Modellen</div>
     <h2>Was es <span class="red">Ihrem Geschäft</span> bringt.</h2>
@@ -724,6 +787,7 @@
     </div>
   </section>
 
+  <!-- CTA -->
   <section class="section cta-section" id="mitmachen">
     <div class="eyebrow">So einfach machen Sie mit</div>
     <h2>Jetzt unter den ersten <span style="color: #FF8676;">15 Partnern</span> dabei sein.</h2>
@@ -743,6 +807,7 @@
     </div>
   </section>
 
+  <!-- FAQ -->
   <section class="section" id="faq">
     <div class="eyebrow">Häufige Fragen</div>
     <h2>Was Sie wissen <span class="red">wollten.</span></h2>
@@ -790,6 +855,7 @@
     </div>
   </section>
 
+  <!-- KONTAKT -->
   <section class="section" id="kontakt">
     <div class="eyebrow">Rückfragen</div>
     <h2>Wer hinter der KiezKarte steht.</h2>
@@ -814,6 +880,7 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-row">
       <div class="footer-logos">
@@ -826,6 +893,10 @@
         1. Schöneweider Zukunftspreise
       </div>
       <div class="footer-slogan">Eine Karte. Ihr Vorteil. Unser Kiez.</div>
+    </div>
+    <div class="footer-legal">
+      <a href="impressum.html">Impressum</a> ·
+      <a href="datenschutz.html">Datenschutz</a>
     </div>
   </footer>
 
