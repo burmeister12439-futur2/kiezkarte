@@ -154,10 +154,11 @@
   .manifest p { font-size: clamp(16px, 2vw, 18.5px); color: var(--ink-soft); line-height: 1.62; max-width: 760px; margin-bottom: 18px; }
   .manifest p b { color: var(--ink); font-weight: 700; }
   .leitlinie {
-    background: var(--ink-box); color: #fff; border-radius: 14px; padding: 30px 32px; margin-top: 10px; max-width: 820px;
+    background: var(--cream-deep); color: var(--ink); border: 1px solid var(--rule); border-left: 4px solid var(--red);
+    border-radius: 0 14px 14px 0; padding: 30px 32px; margin-top: 10px;
   }
-  .leitlinie .lk { font-size: 12px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: #FF8676; margin-bottom: 10px; }
-  .leitlinie p { font-size: clamp(17px, 2.4vw, 21px); line-height: 1.5; font-weight: 600; color: #fff; margin: 0; }
+  .leitlinie .lk { font-size: 12px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+  .leitlinie p { font-size: clamp(17px, 2.4vw, 21px); line-height: 1.5; font-weight: 700; color: var(--ink); margin: 0; }
 
   /* Kreislauf-Diagramm */
   .kreis-wrap { background: #fff; border: 1px solid var(--rule); border-radius: 16px; padding: 24px; }
@@ -201,6 +202,51 @@
   .alpha-list li .an { font-weight: 700; font-size: 14.5px; }
   .alpha-list li .ar { font-size: 12.5px; color: var(--ink-soft); }
   .alpha-list li .ar.tbd { color: var(--ink-mute); font-style: italic; }
+  .an-btn { font: inherit; font-weight: 700; font-size: 14.5px; background: none; border: none; padding: 0; text-align: left; cursor: pointer; color: var(--ink); }
+  .an-btn:hover { color: var(--red); text-decoration: underline; }
+
+  /* Partner-Kachel Akzentfarbe */
+  .partner-card { gap: 6px; }
+  .partner-card::before { background: var(--pc, var(--red)); }
+  .partner-card:hover { border-color: var(--pc, var(--red)); }
+  .partner-card .pc-rabatt { color: var(--pc, var(--red)); font-size: 13.5px; margin-top: 2px; }
+  .partner-card .pc-rabatt.tbd { color: var(--ink-mute); }
+  .partner-card .pc-more { color: var(--pc, var(--red)); margin-top: 8px; }
+  .pc-logo { display: flex; align-items: center; justify-content: flex-start; height: 50px; margin-bottom: 4px; }
+  .pc-logo img { max-height: 50px; max-width: 160px; object-fit: contain; display: block; }
+  .partner-card-more { cursor: default; border-style: dashed; background: var(--cream-deep); justify-content: center; }
+  .partner-card-more::before { display: none; }
+  .partner-card-more:hover { transform: none; box-shadow: none; border-color: var(--rule); }
+  .partner-card-more .pc-name { color: var(--ink-soft); }
+  .partner-card-more .pc-kind { color: var(--ink-mute); }
+
+  /* Partner-Detail-Modal */
+  .pmodal { position: fixed; inset: 0; z-index: 100; display: none; }
+  .pmodal.open { display: block; }
+  .pmodal-backdrop { position: absolute; inset: 0; background: rgba(20,18,16,0.55); }
+  .pmodal-card { --pm: var(--red); position: relative; max-width: 440px; width: calc(100% - 32px); margin: 7vh auto 0; background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.32); animation: pmIn .18s ease; }
+  @keyframes pmIn { from { transform: translateY(12px); opacity: 0; } to { transform: none; opacity: 1; } }
+  .pmodal-close { position: absolute; top: 10px; right: 12px; z-index: 2; width: 34px; height: 34px; border: none; border-radius: 50%; background: rgba(255,255,255,0.88); font-size: 22px; line-height: 1; cursor: pointer; color: #2D2A26; }
+  .pmodal-close:hover { background: #fff; }
+  .pmodal-head { background: var(--pm); padding: 22px; display: flex; align-items: center; justify-content: center; min-height: 160px; }
+  .pmodal-media { display: flex; align-items: center; justify-content: center; width: 100%; }
+  .pmodal-imgbox { background: #fff; border-radius: 12px; padding: 16px 18px; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 320px; min-height: 116px; }
+  .pmodal-imgbox img { max-width: 100%; max-height: 148px; object-fit: contain; display: block; }
+  .pmodal-photo img { max-width: 100%; max-height: 200px; border-radius: 10px; display: block; }
+  .pmodal-mono { width: 96px; height: 96px; border-radius: 20px; background: rgba(255,255,255,0.18); border: 2px solid rgba(255,255,255,0.65); color: #fff; font-weight: 900; font-size: 38px; display: flex; align-items: center; justify-content: center; }
+  .pmodal-body { padding: 22px 24px 26px; }
+  .pmodal-kind { font-size: 12px; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 800; color: var(--pm); margin-bottom: 6px; }
+  .pmodal-name { font-size: 22px; font-weight: 900; line-height: 1.15; margin-bottom: 14px; letter-spacing: -0.01em; }
+  .pmodal-rabatt { background: var(--cream-deep); border-radius: 10px; padding: 14px 16px; font-size: 16px; font-weight: 800; color: var(--ink); margin-bottom: 18px; }
+  .pmodal-rabatt small { display: block; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); font-weight: 800; margin-bottom: 4px; }
+  .pmodal-rabatt.tbd { font-weight: 600; font-style: italic; color: var(--ink-mute); }
+  .pmodal-links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .pmodal-links a { flex: 1 1 auto; text-align: center; padding: 11px 14px; border-radius: 9px; font-size: 14px; font-weight: 700; text-decoration: none; }
+  .pmlink-web { background: var(--pm); color: #fff; }
+  .pmlink-web:hover { filter: brightness(0.94); }
+  .pmlink-map { background: #fff; color: var(--ink); border: 1.5px solid var(--rule); }
+  .pmlink-map:hover { border-color: var(--pm); color: var(--pm); }
+  body.pm-open { overflow: hidden; }
   .alpha-list li a { font-size: 12.5px; font-weight: 700; color: var(--teal); text-decoration: none; white-space: nowrap; }
   .alpha-list li a:hover { text-decoration: underline; }
 
@@ -215,6 +261,15 @@
   }
   .support-band .sb-k { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.16em; color: var(--teal); }
   .support-band b { color: var(--ink); font-weight: 700; }
+
+  /* Vorankündigung Xmas-Party — prominent & festlich */
+  .xmas-box { position: relative; overflow: hidden; background: linear-gradient(135deg, #A8240F 0%, #D72E1F 52%, #C98A1E 150%); color: #fff; border-radius: 16px; padding: 42px 38px; box-shadow: 0 18px 44px rgba(168,36,15,0.30); }
+  .xmas-box::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 6px; background: linear-gradient(90deg,#5B3FA8 0%,#B72E94 22%,#D72E1F 44%,#E9B340 64%,#137F7F 84%,#5B3FA8 100%); }
+  .xmas-eyebrow { display: inline-block; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: #2D2A26; background: #FFD98A; padding: 5px 12px; border-radius: 20px; margin-bottom: 16px; }
+  .xmas-box h3 { font-size: clamp(24px, 4.4vw, 38px); font-weight: 900; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 12px; color: #fff; }
+  .xmas-box h3 .red { color: #FFDFA0; }
+  .xmas-box p { font-size: clamp(15.5px, 2vw, 17.5px); color: rgba(255,255,255,0.92); line-height: 1.6; max-width: 680px; }
+  .xmas-box p b { color: #fff; font-weight: 800; }
 
   /* Geldbeispiel */
   .geldbox-wrap { background: #fff; border: 1px solid var(--rule); border-left: 4px solid var(--red); border-radius: 0 14px 14px 0; padding: 28px 32px; margin-top: 4px; }
@@ -231,12 +286,12 @@
   .zitat cite { font-style: normal; font-size: 14px; color: var(--ink-mute); }
 
   /* CTA */
-  section.section.cta-section { background: var(--ink-box); color: #fff; border-top: none; padding: 54px 40px; border-radius: 16px; }
+  section.section.cta-section { background: linear-gradient(135deg, #A8240F 0%, #D72E1F 100%); color: #fff; border-top: none; padding: 54px 40px; border-radius: 16px; }
   @media (max-width: 720px) { section.section.cta-section { padding: 40px 24px; } }
   section.section.cta-section h2 { color: #fff; }
   section.section.cta-section .lede { color: rgba(255,255,255,0.80); }
   section.section.cta-section .lede b { color: #fff; }
-  section.section.cta-section .eyebrow { color: #FF8676; }
+  section.section.cta-section .eyebrow { color: #FFD98A; }
   .cta-box { background: #fff; color: var(--ink); border-radius: 16px; padding: 34px 32px; margin-top: 20px; display: flex; flex-direction: column; gap: 24px; }
   @media (min-width: 720px) { .cta-box { flex-direction: row; align-items: center; } }
   .cta-box-text { flex: 1; }
@@ -292,8 +347,7 @@
       <img class="logo-werk" src="werk116_logo.png" alt="WERK 116">
     </div>
     <nav class="topbar-nav">
-      <a class="topbar-link" href="partner.html">Für Partner →</a>
-      <a class="topbar-cta" href="#kaufen">Karte sichern →</a>
+      <a class="topbar-cta" href="#partner">Unsere Kiez-Partner →</a>
     </nav>
   </header>
 
@@ -377,6 +431,19 @@
     </div>
   </section>
 
+  <!-- VORANKÜNDIGUNG XMAS -->
+  <section class="section" id="xmas">
+    <div class="xmas-box">
+      <div class="xmas-eyebrow">Vorankündigung · 5. Dezember 2026</div>
+      <h3>Die <span class="red">KiezKarten-Benefit-Xmas-Party.</span></h3>
+      <p>
+        Für alle KiezKarten-Fans: Am <b>5. Dezember ab 19 Uhr</b> feiern wir gemeinsam im
+        <b>Industriesalon</b> — mit Glühwein, Musik, einer <b>Versteigerung</b> und
+        KiezKultur-Überraschungen als Dankeschön fürs Mitmachen. Save the date!
+      </p>
+    </div>
+  </section>
+
   <!-- MANIFEST: Was wir vorhaben -->
   <section class="section manifest" id="idee">
     <div class="eyebrow">Was wir vorhaben</div>
@@ -453,11 +520,10 @@
     <h2>Diese Betriebe <span class="red">sind dabei.</span></h2>
     <p class="lede">
       15 Partnerbetriebe aus Ober- und Niederschöneweide machen von Anfang an mit — und es
-      werden mehr. Tippe auf einen Betrieb, um seinen Rabatt und die Lage zu sehen.
+      werden mehr. Tippe auf einen Betrieb — für Rabatt, Website und Lage.
     </p>
 
     <div class="partner-tools">
-      <button class="toolbtn" id="btnShuffle" type="button">↻ Reihenfolge wechseln</button>
       <button class="toolbtn" id="btnAlpha" type="button">A–Z Übersicht anzeigen</button>
     </div>
 
@@ -530,7 +596,7 @@
       <div class="cta-box-text">
         <h3>Unter den ersten 500 sein</h3>
         <p>
-          Kein Abo, kein Monatsbeitrag — einmal 49 €, ein ganzes Kiezjahr. Alle Infos und die
+          Kein Monatsbeitrag — einmal 49 €, ein ganzes Kiezjahr. Alle Infos und die
           aktuelle Partnerliste hier auf der Seite.<br>
           <b>www.schoeneweider-kiezkarte.de</b>
         </p>
@@ -557,7 +623,7 @@
       </div>
       <div class="faq-item">
         <h3>Wie lange gilt die Karte?</h3>
-        <p>Die Pilot-Karte kostet <b>49 €</b> und gilt bis zum <b>31. Dezember 2026</b>. Kein Abo, kein Monatsbeitrag.</p>
+        <p>Die Pilot-Karte kostet <b>49 €</b> und gilt bis zum <b>31. Dezember 2026</b>. Kein Monatsbeitrag, keine laufenden Kosten.</p>
       </div>
       <div class="faq-item">
         <h3>Wie viel spare ich?</h3>
@@ -626,25 +692,42 @@
 
 </div>
 
+<!-- PARTNER-DETAIL-MODAL -->
+<div class="pmodal" id="pmodal" aria-hidden="true">
+  <div class="pmodal-backdrop" data-close></div>
+  <div class="pmodal-card" id="pmCard" role="dialog" aria-modal="true" aria-labelledby="pmName">
+    <button class="pmodal-close" type="button" aria-label="Schließen" data-close>×</button>
+    <div class="pmodal-head">
+      <div class="pmodal-media" id="pmMedia"></div>
+    </div>
+    <div class="pmodal-body">
+      <div class="pmodal-kind" id="pmKind"></div>
+      <h3 class="pmodal-name" id="pmName"></h3>
+      <div class="pmodal-rabatt" id="pmRabatt"></div>
+      <div class="pmodal-links" id="pmLinks"></div>
+    </div>
+  </div>
+</div>
+
 <script>
   // ==== Partnerdaten — hier pflegst du Namen, Rabatt und Maps-Suche ====
   // rabatt: leer lassen ("") => zeigt "Rabatt folgt". Sobald bekannt, z.B. "10 %".
   const PARTNERS = [
-    { name: "WERK 116 – Buchhandlung am Königsplatz", kind: "Buchhandlung", rabatt: "10 % auf nicht preisgebundene Ware (alles außer Büchern)", maps: "WERK 116 Buchhandlung am Königsplatz Berlin" },
-    { name: "Industriesalon Schöneweide", kind: "Museum & Kultur", rabatt: "", maps: "Industriesalon Schöneweide Berlin" },
-    { name: "Jennifer Löwe – Lomi Lomi Massagen", kind: "Massage (mobil)", rabatt: "", maps: "" },
-    { name: "PROSOL", kind: "", rabatt: "", maps: "PROSOL Schöneweide Berlin" },
-    { name: "Allianz Generalagentur Thomas Klein", kind: "Versicherung", rabatt: "", maps: "Allianz Thomas Klein Oberschöneweide Berlin" },
-    { name: "Würfelgasse Berlin", kind: "Spiele & Café", rabatt: "5 % aufs Sortiment", maps: "Würfelgasse Berlin" },
-    { name: "Dein Radius – Die Fahrradprofis", kind: "Fahrrad", rabatt: "10 % aufs Sortiment", maps: "Dein Radius Fahrrad Schöneweide Berlin" },
-    { name: "ALGONET GmbH", kind: "Objekteinrichtung", rabatt: "", maps: "ALGONET Schöneweide Berlin" },
-    { name: "Sonnenapotheke", kind: "Apotheke", rabatt: "", maps: "Sonnenapotheke Schöneweide Berlin" },
-    { name: "Krasse Crêpes", kind: "Crêpes & Café", rabatt: "", maps: "Krasse Crêpes Schöneweide Berlin" },
-    { name: "Lasergame Berlin", kind: "Freizeit", rabatt: "10 % für die Gruppe bei FUN Lasertag (Mo–Do)", maps: "Lasergame Berlin Schöneweide" },
-    { name: "Tinas Feinbäckerei", kind: "Bäckerei", rabatt: "10 % aufs Brotsortiment", maps: "Tinas Feinbäckerei Schöneweide Berlin" },
-    { name: "BerlinKleinod", kind: "", rabatt: "", maps: "BerlinKleinod Berlin" },
-    { name: "Wilhelminenhof-Apotheke", kind: "Apotheke", rabatt: "", maps: "Wilhelminenhof-Apotheke Berlin" },
-    { name: "KAOS", kind: "Kunst & Veranstaltung", rabatt: "", maps: "KAOS Wilhelminenhofstraße Berlin" }
+    { name: "WERK 116 – Buchhandlung am Königsplatz", kind: "Buchhandlung", rabatt: "10 % auf nicht preisgebundene Ware (alles außer Büchern); zur Lesung von Anna Rabe »Die Möglichkeit von Glück« am 15.10. im Industriesalon kann die 2. Person kostenlos mithören", url: "https://werk116.de/", img: "partner/werk116.png", maps: "WERK 116 Buchhandlung am Königsplatz Berlin" },
+    { name: "Industriesalon Schöneweide", kind: "Museum & Kultur", rabatt: "10 % auf alle Publikationen des Industriesalons; bei Buchung der Führung »Elektropolis« (Publikumsliebling) kommt die 2. Person kostenlos mit; und zur Lesung von Anna Rabe »Die Möglichkeit von Glück« am 15.10. kann die 2. Person kostenlos mithören", url: "https://www.industriesalon.de/", img: "partner/industriesalon.png", maps: "Industriesalon Schöneweide Berlin" },
+    { name: "Jennifer Löwe – Lomi Lomi Massagen", kind: "Massage (mobil)", rabatt: "", url: "https://www.soulmotion-berlin.de/", img: "partner/loewe.png", photo: true, color: "#794032", maps: "" },
+    { name: "PROSOL Lacke + Farben", kind: "Lacke & Farben", rabatt: "", url: "https://www.prosol-farben.de/standorte/berlin/", img: "partner/prosol.png", maps: "PROSOL Lacke Farben Nalepastraße Berlin" },
+    { name: "Allianz Generalvertretung Thomas Klein", kind: "Versicherung", rabatt: "10 % Standortrabatt auf alle neuen Verträge", url: "https://vertretung.allianz.de/thomas.klein1/", img: "partner/allianz.png", maps: "Allianz Thomas Klein Oberschöneweide Berlin" },
+    { name: "Würfelgasse Berlin", kind: "Spiele & Brettspiele", rabatt: "5 % aufs Sortiment", url: "https://www.instagram.com/wuerfelgasse.berlin/", img: "partner/wuerfelgasse.jpg", photo: true, maps: "Würfelgasse Rathenaustraße Berlin" },
+    { name: "Dein Radius – Die Fahrradprofis", kind: "Fahrrad", rabatt: "10 % aufs Sortiment", url: "https://dein-radius.de/", img: "partner/dein-radius.png", maps: "Dein Radius Fahrrad Schöneweide Berlin" },
+    { name: "ALGONET GmbH", kind: "Objekteinrichtung", rabatt: "", url: "https://www.algonet.de/", img: "partner/algonet.png", maps: "ALGONET Schöneweide Berlin" },
+    { name: "Sonnenapotheke", kind: "Apotheke", rabatt: "", url: "https://sonnen-apotheke-osw.de/", img: "partner/sonnenapotheke.jpg", photo: true, maps: "Sonnen-Apotheke Oberschöneweide Berlin" },
+    { name: "Krasse Crêpes", kind: "Crêpes & Kiosk", rabatt: "", url: "https://www.instagram.com/kioskschoenewelle/", img: "partner/krasse-crepes.jpg", photo: true, maps: "Schönewelle Reinbeckstraße Schöneweide Berlin" },
+    { name: "Lasergame Berlin", kind: "Lasertag & Freizeit", rabatt: "10 % für die Gruppe bei FUN Lasertag (Mo–Do)", url: "https://lasergame-berlin.de/", img: "partner/lasergame.jpg", maps: "Lasergame Berlin Schöneweide" },
+    { name: "Tinas Feinbäckerei", kind: "Bäckerei", rabatt: "10 % aufs Brotsortiment", url: "https://www.instagram.com/tinas_feinbaeckerei/", img: "partner/tinas.jpg", photo: true, maps: "Tinas Feinbäckerei Schöneweide Berlin" },
+    { name: "BerlinKleinod", kind: "Schmuck-Manufaktur", rabatt: "", url: "https://berlinkleinod.de/", img: "partner/berlinkleinod.png", maps: "BerlinKleinod Schöneweide Berlin" },
+    { name: "Wilhelminenhof-Apotheke", kind: "Apotheke", rabatt: "", url: "https://wilhelminenhof-apotheke.de/", img: "partner/wilhelminenhof.png", maps: "Wilhelminenhof-Apotheke Berlin" },
+    { name: "KAOS", kind: "Kunst & Events", rabatt: "10 % auf alle Veranstaltungen von KAOS", url: "https://kaosberlin.de/", img: "partner/kaos.png", maps: "KAOS Wilhelminenhofstraße Berlin" }
   ];
 
   function mapsUrl(q) {
@@ -654,6 +737,47 @@
     return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
   }
 
+  // --- Akzentfarben pro Partner (stabil) ---
+  const PALETTE = ["#5B3FA8","#B72E94","#D72E1F","#137F7F","#B0851F"];
+  PARTNERS.forEach((p, i) => { p.color = p.color || PALETTE[i % PALETTE.length]; });
+
+  function initials(name) {
+    const w = name.replace(/[–—-]/g, " ").split(/\s+/).filter(Boolean);
+    return ((w[0] ? w[0][0] : "") + (w[1] ? w[1][0] : "")).toUpperCase();
+  }
+  function linkLabel(url) { return /instagram\.com/i.test(url) ? "Instagram ↗" : "Website ↗"; }
+
+  // --- Detail-Modal ---
+  const modal = document.getElementById("pmodal");
+  const pmCard = document.getElementById("pmCard");
+  function openModal(p) {
+    pmCard.style.setProperty("--pm", p.color);
+    document.getElementById("pmMedia").innerHTML = p.img
+      ? (p.photo
+          ? '<div class="pmodal-photo"><img src="' + p.img + '" alt="' + esc(p.name) + '"></div>'
+          : '<div class="pmodal-imgbox"><img src="' + p.img + '" alt="' + esc(p.name) + '"></div>')
+      : '<div class="pmodal-mono">' + esc(initials(p.name)) + '</div>';
+    document.getElementById("pmKind").textContent = p.kind || "Partnerbetrieb";
+    document.getElementById("pmName").textContent = p.name;
+    const rab = document.getElementById("pmRabatt");
+    rab.className = p.rabatt ? "pmodal-rabatt" : "pmodal-rabatt tbd";
+    rab.innerHTML = "<small>Dein Rabatt</small>" + (p.rabatt ? esc(p.rabatt) : "Rabatt folgt");
+    let l = "";
+    if (p.url) l += '<a class="pmlink-web" href="' + p.url + '" target="_blank" rel="noopener">' + linkLabel(p.url) + '</a>';
+    if (p.maps) l += '<a class="pmlink-map" href="' + mapsUrl(p.maps) + '" target="_blank" rel="noopener">Auf Karte ↗</a>';
+    document.getElementById("pmLinks").innerHTML = l;
+    modal.classList.add("open");
+    document.body.classList.add("pm-open");
+    modal.setAttribute("aria-hidden", "false");
+  }
+  function closeModal() {
+    modal.classList.remove("open");
+    document.body.classList.remove("pm-open");
+    modal.setAttribute("aria-hidden", "true");
+  }
+  modal.addEventListener("click", e => { if (e.target.hasAttribute("data-close")) closeModal(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
   // --- Kachel-Grid (wechselnde Reihenfolge) ---
   const grid = document.getElementById("partnerGrid");
   function renderGrid(order) {
@@ -662,22 +786,21 @@
       const card = document.createElement("button");
       card.type = "button";
       card.className = "partner-card";
-      const rabattTxt = p.rabatt ? esc(p.rabatt) : "Rabatt folgt";
-      const rabattCls = p.rabatt ? "pc-rabatt" : "pc-rabatt tbd";
-      const mapsHtml = p.maps
-        ? '<a class="pc-maps" href="' + mapsUrl(p.maps) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">Auf Karte ansehen ↗</a>'
-        : '';
+      card.style.setProperty("--pc", p.color);
       card.innerHTML =
         '<span class="pc-name">' + esc(p.name) + '</span>' +
         (p.kind ? '<span class="pc-kind">' + esc(p.kind) + '</span>' : '') +
-        '<div class="pc-reveal">' +
-          '<div class="' + rabattCls + '">' + rabattTxt + '</div>' +
-          mapsHtml +
-        '</div>' +
-        '<span class="pc-more">Details</span>';
-      card.addEventListener("click", () => card.classList.toggle("open"));
+        '<span class="pc-more">Details ansehen →</span>';
+      card.addEventListener("click", () => openModal(p));
       grid.appendChild(card);
     });
+    // Feste Abschluss-Kachel — immer zuletzt, wird nie gemischt
+    const more = document.createElement("div");
+    more.className = "partner-card partner-card-more";
+    more.innerHTML =
+      '<span class="pc-name">Weitere folgen</span>' +
+      '<span class="pc-kind">Der Kreis der Partner wächst.</span>';
+    grid.appendChild(more);
   }
   function shuffle(a) {
     const arr = a.slice();
@@ -688,19 +811,21 @@
     return arr;
   }
   renderGrid(shuffle(PARTNERS));
-  document.getElementById("btnShuffle").addEventListener("click", () => renderGrid(shuffle(PARTNERS)));
 
   // --- Alphabetische Übersicht ---
   const alphaList = document.getElementById("alphaList");
   PARTNERS.slice().sort((a, b) => a.name.localeCompare(b.name, "de")).forEach(p => {
     const li = document.createElement("li");
-    const link = p.maps
-      ? '<a href="' + mapsUrl(p.maps) + '" target="_blank" rel="noopener">Karte ↗</a>'
-      : '<span></span>';
     const rab = p.rabatt
       ? '<span class="ar">' + esc(p.rabatt) + '</span>'
       : '<span class="ar tbd">Rabatt folgt</span>';
-    li.innerHTML = '<div class="al-main"><span class="an">' + esc(p.name) + '</span>' + rab + '</div>' + link;
+    const map = p.maps
+      ? '<a href="' + mapsUrl(p.maps) + '" target="_blank" rel="noopener">Karte ↗</a>'
+      : '<span></span>';
+    li.innerHTML = '<div class="al-main"><button class="an-btn" type="button"></button>' + rab + '</div>' + map;
+    const btn = li.querySelector(".an-btn");
+    btn.textContent = p.name;
+    btn.addEventListener("click", () => openModal(p));
     alphaList.appendChild(li);
   });
   const alphaBox = document.getElementById("partnerAlpha");
