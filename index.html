@@ -95,7 +95,7 @@
   }
   .btn-ghost:hover { border-color: var(--red); color: var(--red); }
   .hero-card-wrap { display: flex; justify-content: center; margin-top: 34px; }
-  .hero-card { width: 100%; max-width: 600px; border-radius: 14px; filter: drop-shadow(0 14px 34px rgba(0,0,0,0.16)); }
+  .hero-card { width: 100%; max-width: 680px; border-radius: 14px; filter: drop-shadow(0 16px 40px rgba(0,0,0,0.18)); }
   .hero-meta {
     margin-top: 26px; text-align: center; font-size: 13px; color: var(--ink-mute);
     letter-spacing: 0.14em; text-transform: uppercase;
@@ -235,16 +235,21 @@
   .pmodal-close:hover { background: #fff; }
   .pmodal-head { background: var(--pm); padding: 22px; display: flex; align-items: center; justify-content: center; min-height: 160px; }
   .pmodal-media { display: flex; align-items: center; justify-content: center; width: 100%; }
-  .pmodal-imgbox { background: #fff; border-radius: 12px; padding: 16px 18px; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 320px; min-height: 116px; }
-  .pmodal-imgbox img { max-width: 100%; max-height: 148px; object-fit: contain; display: block; }
+  .pmodal-imgbox { background: #fff; border-radius: 12px; padding: 20px 24px; display: flex; align-items: center; justify-content: center; width: auto; max-width: 270px; min-height: 92px; }
+  .pmodal-imgbox img { max-width: 100%; max-height: 104px; object-fit: contain; display: block; }
   .pmodal-photo img { max-width: 100%; max-height: 200px; border-radius: 10px; display: block; }
   .pmodal-mono { width: 96px; height: 96px; border-radius: 20px; background: rgba(255,255,255,0.18); border: 2px solid rgba(255,255,255,0.65); color: #fff; font-weight: 900; font-size: 38px; display: flex; align-items: center; justify-content: center; }
   .pmodal-body { padding: 22px 24px 26px; }
+  .pmodal-logo { display: flex; justify-content: flex-end; margin-bottom: 12px; }
+  .pmodal-logo img { max-height: 58px; max-width: 210px; object-fit: contain; display: block; }
   .pmodal-kind { font-size: 12px; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 800; color: var(--pm); margin-bottom: 6px; }
   .pmodal-name { font-size: 22px; font-weight: 900; line-height: 1.15; margin-bottom: 14px; letter-spacing: -0.01em; }
   .pmodal-rabatt { background: var(--cream-deep); border-radius: 10px; padding: 14px 16px; font-size: 16px; font-weight: 800; color: var(--ink); margin-bottom: 18px; }
   .pmodal-rabatt small { display: block; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); font-weight: 800; margin-bottom: 4px; }
   .pmodal-rabatt.tbd { font-weight: 600; font-style: italic; color: var(--ink-mute); }
+  .pmodal-text { font-size: 13.5px; line-height: 1.6; color: var(--ink-soft); margin-bottom: 16px; }
+  .pmodal-text a { color: var(--pm); font-weight: 700; text-decoration: none; word-break: break-word; }
+  .pmodal-text a:hover { text-decoration: underline; }
   .pmodal-links { display: flex; flex-wrap: wrap; gap: 10px; }
   .pmodal-links a { flex: 1 1 auto; text-align: center; padding: 11px 14px; border-radius: 9px; font-size: 14px; font-weight: 700; text-decoration: none; }
   .pmlink-web { background: var(--pm); color: #fff; }
@@ -266,6 +271,8 @@
   }
   .support-band .sb-k { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.16em; color: var(--teal); }
   .support-band b { color: var(--ink); font-weight: 700; }
+  .support-band a { color: var(--red); text-decoration: none; }
+  .support-band a:hover { text-decoration: underline; }
 
   /* Vorankündigung Xmas-Party — prominent & festlich */
   .xmas-box { position: relative; overflow: hidden; background: linear-gradient(135deg, #A8240F 0%, #D72E1F 52%, #C98A1E 150%); color: #fff; border-radius: 16px; padding: 42px 38px; box-shadow: 0 18px 44px rgba(168,36,15,0.30); }
@@ -365,7 +372,7 @@
     <h1>Schöneweide nimmt es <span class="red">selbst in die Hand.</span></h1>
     <p class="sub">
       Mit der KiezKarte unterstützt du <b>Kultur- und soziale Projekte</b> in Ober- und
-      Niederschöneweide und die <b>lokalen Betriebe</b>. Du sparst dabei — und stärkst den Kiez.
+      Niederschöneweide und die <b>lokalen Betriebe</b>. Du sparst dabei und stärkst den Kiez.
     </p>
     <div class="hero-cta-row">
       <a class="btn-primary" href="#kaufen">Karte sichern — 49 €</a>
@@ -396,7 +403,7 @@
       <div class="vorteil v-teal">
         <div class="vk">Kultur fördern</div>
         <h3>Kiez stärken</h3>
-        <p>Ein Teil jedes Kartenpreises fließt direkt in Kultur- und soziale Projekte im Stadtteil — zum Beispiel Brückenfest, Freiluftkino oder deine eigene Idee.</p>
+        <p>Ein Teil jedes Kartenpreises fließt direkt in Kultur- und soziale Projekte im Stadtteil — zum Beispiel Brückenfest, Freiluftkino oder <b>deine eigene Idee</b>.</p>
       </div>
       <div class="vorteil v-gold">
         <div class="vk">100 % Schöneweide</div>
@@ -535,7 +542,7 @@
     <div class="eyebrow">Hier sparst du</div>
     <h2>Diese Betriebe <span class="red">sind dabei.</span></h2>
     <p class="lede">
-      15 Partnerbetriebe aus Ober- und Niederschöneweide machen von Anfang an mit — und es
+      17 Partnerbetriebe aus Ober- und Niederschöneweide machen von Anfang an mit — und es
       werden mehr. Tippe auf einen Betrieb — für Rabatt, Website und Lage.
     </p>
 
@@ -585,8 +592,7 @@
   <!-- SUPPORT-BAND -->
   <section class="section" id="support">
     <div class="support-band">
-      <span class="sb-k">Unterstützt von</span>
-      <span>Die Schöneweider KiezKarte wird unterstützt von der <b>Kiezkasse Niederschöneweide</b>.</span>
+      <span>Die Schöneweider KiezKarte wird unterstützt von der <a class="kk-link" href="https://www.berlin.de/ba-treptow-koepenick/aktuelles/buergerbeteiligung/kiezkassen/artikel.24937.php" target="_blank" rel="noopener"><b>Kiezkasse Niederschöneweide</b></a>.</span>
     </div>
   </section>
 
@@ -717,9 +723,11 @@
       <div class="pmodal-media" id="pmMedia"></div>
     </div>
     <div class="pmodal-body">
+      <div class="pmodal-logo" id="pmLogo"></div>
       <div class="pmodal-kind" id="pmKind"></div>
       <h3 class="pmodal-name" id="pmName"></h3>
       <div class="pmodal-rabatt" id="pmRabatt"></div>
+      <div class="pmodal-text" id="pmText"></div>
       <div class="pmodal-links" id="pmLinks"></div>
     </div>
   </div>
@@ -729,21 +737,23 @@
   // ==== Partnerdaten — hier pflegst du Namen, Rabatt und Maps-Suche ====
   // rabatt: leer lassen ("") => zeigt "Rabatt folgt". Sobald bekannt, z.B. "10 %".
   const PARTNERS = [
-    { name: "WERK 116 – Buchhandlung am Königsplatz", kind: "Buchhandlung", rabatt: "10 % auf nicht preisgebundene Ware (alles außer Büchern); zur Lesung von Anna Rabe »Die Möglichkeit von Glück« am 15.10. im Industriesalon kann die 2. Person kostenlos mithören", url: "https://werk116.de/", img: "partner/werk116.png", maps: "WERK 116 Buchhandlung am Königsplatz Berlin" },
+    { name: "WERK 116 – Buchhandlung am Königsplatz", kind: "Buchhandlung", rabatt: "10 % auf alles außer Bücher", url: "https://werk116.de/", img: "partner/werk116.jpg", photo: true, logo: "partner/werk116-logo.png", text: "Bücher unterliegen der Preisbindung — dafür gibt es viele andere schöne Dinge mit 10 % Rabatt: Kalender, Postkarten, Spiele, Memos, einen Oberschöneweide-Stadtplan von 1907 und mehr.<br><br>Außerdem: Zur Lesung von Anna Rabe »Die Möglichkeit von Glück« am 15.10. im Industriesalon kann die 2. Person kostenlos mithören.", maps: "WERK 116 Buchhandlung am Königsplatz Berlin" },
     { name: "Industriesalon Schöneweide", kind: "Museum & Kultur", rabatt: "10 % auf alle Publikationen des Industriesalons; bei Buchung der Führung »Elektropolis« (Publikumsliebling) kommt die 2. Person kostenlos mit; und zur Lesung von Anna Rabe »Die Möglichkeit von Glück« am 15.10. kann die 2. Person kostenlos mithören", url: "https://www.industriesalon.de/", img: "partner/industriesalon.png", maps: "Industriesalon Schöneweide Berlin" },
-    { name: "Jennifer Löwe – Lomi Lomi Massagen", kind: "Massage (mobil)", rabatt: "", url: "https://www.soulmotion-berlin.de/", img: "partner/loewe.png", photo: true, color: "#794032", maps: "" },
-    { name: "PROSOL Lacke + Farben", kind: "Lacke & Farben", rabatt: "", url: "https://www.prosol-farben.de/standorte/berlin/", img: "partner/prosol.png", maps: "PROSOL Lacke Farben Nalepastraße Berlin" },
+    { name: "Jennifer Löwe – Lomi Lomi Massagen", kind: "Massage (mobil)", rabatt: "20 % auf alle Massagen", url: "https://www.soulmotion-berlin.de/", img: "partner/loewe.jpg", photo: true, logo: "partner/loewe-logo.png", color: "#794032", maps: "" },
+    { name: "PROSOL Lacke + Farben", kind: "Lacke & Farben", rabatt: "10 % Rabatt", url: "https://www.prosol-farben.de/standorte/berlin/", img: "partner/prosol.png", maps: "PROSOL Lacke Farben Nalepastraße Berlin" },
     { name: "Allianz Generalvertretung Thomas Klein", kind: "Versicherung", rabatt: "10 % Standortrabatt auf alle neuen Verträge", url: "https://vertretung.allianz.de/thomas.klein1/", img: "partner/allianz.png", maps: "Allianz Thomas Klein Oberschöneweide Berlin" },
-    { name: "Würfelgasse Berlin", kind: "Spiele & Brettspiele", rabatt: "5 % aufs Sortiment", url: "https://www.instagram.com/wuerfelgasse.berlin/", img: "partner/wuerfelgasse.jpg", photo: true, maps: "Würfelgasse Rathenaustraße Berlin" },
+    { name: "Würfelgasse Berlin", kind: "Spiele & Brettspiele", rabatt: "5 % aufs Sortiment", url: "https://www.instagram.com/wuerfelgasse.berlin/", img: "partner/wuerfelgasse.png", maps: "Würfelgasse Rathenaustraße Berlin" },
     { name: "Dein Radius – Die Fahrradprofis", kind: "Fahrrad", rabatt: "10 % aufs Sortiment", url: "https://dein-radius.de/", img: "partner/dein-radius.png", maps: "Dein Radius Fahrrad Schöneweide Berlin" },
-    { name: "ALGONET GmbH", kind: "Objekteinrichtung", rabatt: "", url: "https://www.algonet.de/", img: "partner/algonet.png", maps: "ALGONET Schöneweide Berlin" },
-    { name: "Sonnenapotheke", kind: "Apotheke", rabatt: "", url: "https://sonnen-apotheke-osw.de/", img: "partner/sonnenapotheke.jpg", photo: true, maps: "Sonnen-Apotheke Oberschöneweide Berlin" },
-    { name: "Krasse Crêpes", kind: "Crêpes & Kiosk", rabatt: "10 % auf alle Crêpes", url: "https://www.instagram.com/kioskschoenewelle/", img: "partner/krasse-crepes.jpg", photo: true, maps: "Schönewelle Reinbeckstraße Schöneweide Berlin" },
+    { name: "ALGONET GmbH", kind: "Objekteinrichtung", rabatt: "Kostenlose Zusatzleistung + Rabatt", url: "https://www.algonet.de/", img: "partner/algonet.png", maps: "ALGONET Schöneweide Berlin" },
+    { name: "Sonnenapotheke", kind: "Apotheke", rabatt: "10 % ab 20 € Einkauf (nicht auf rezeptpflichtige Arzneimittel, nicht kombinierbar)", url: "https://sonnen-apotheke-osw.de/", img: "partner/sonnenapotheke.jpg", photo: true, text: "Kiezkultur braucht Sonne pur! Als Inhaber:in der Karte werden Sie bei uns ab einem Einkauf von 20 € mit 10 % Rabatt belohnt. Keine Kombination mit anderen Rabatten und kein Rabatt auf verschreibungspflichtige Arzneimittel, Rezepturen sowie Rezeptzuzahlungen!", maps: "Sonnen-Apotheke Oberschöneweide Berlin" },
+    { name: "Krasse Crêpes", kind: "Crêpes & Kiosk", rabatt: "10 % auf alle Crêpes", url: "https://www.instagram.com/cafe_krasse_crepes/", img: "partner/krasse-crepes.jpg", photo: true, maps: "Krasse Crêpes Schöneweide Berlin" },
     { name: "Lasergame Berlin", kind: "Lasertag & Freizeit", rabatt: "10 % für die Gruppe bei FUN Lasertag (Mo–Do)", url: "https://lasergame-berlin.de/", img: "partner/lasergame.jpg", maps: "Lasergame Berlin Schöneweide" },
     { name: "Tinas Feinbäckerei", kind: "Bäckerei", rabatt: "10 % aufs Brotsortiment", url: "https://www.instagram.com/tinas_feinbaeckerei/", img: "partner/tinas.jpg", photo: true, maps: "Tinas Feinbäckerei Schöneweide Berlin" },
-    { name: "BerlinKleinod", kind: "Schmuck-Manufaktur", rabatt: "", url: "https://berlinkleinod.de/", img: "partner/berlinkleinod.png", maps: "BerlinKleinod Schöneweide Berlin" },
-    { name: "Wilhelminenhof-Apotheke", kind: "Apotheke", rabatt: "", url: "https://wilhelminenhof-apotheke.de/", img: "partner/wilhelminenhof.png", maps: "Wilhelminenhof-Apotheke Berlin" },
-    { name: "KAOS", kind: "Kunst & Events", rabatt: "10 % auf alle Veranstaltungen von KAOS", url: "https://kaosberlin.de/", img: "partner/kaos.png", maps: "KAOS Wilhelminenhofstraße Berlin" }
+    { name: "BerlinKleinod", kind: "Schmuck-Manufaktur", rabatt: "10 % auf das gesamte Sortiment (Etsy-Shop & ausgestellte Produkte bei WERK 116)", url: "https://berlinkleinod.de/", img: "partner/berlinkleinod.jpg", photo: true, logo: "partner/berlinkleinod-logo.png", text: "Handgemachter Schmuck und Accessoires von Sofie Müller. Als KiezKarten-Inhaber:in bekommst du 10 % Rabatt auf das gesamte Sortiment im Etsy-Shop sowie auf die ausgestellten Produkte bei Dirk Sarnoch im Buchladen (WERK 116).<br><br>So kommst du an den Etsy-Rabattcode: Geh in den Shop <a href='https://www.etsy.com/shop/BerlinKleinod' target='_blank' rel='noopener'>etsy.com/shop/BerlinKleinod</a> und hinterlasse im Kontaktfeld eine Nachricht mit deinem Namen und deiner KiezKarten-Nummer. Du bekommst schnell (spätestens innerhalb von 12 Stunden) deinen Code zum Einlösen.", maps: "BerlinKleinod Schöneweide Berlin" },
+    { name: "Wilhelminenhof-Apotheke", kind: "Apotheke", rabatt: "Auf Nachfrage", url: "https://wilhelminenhof-apotheke.de/", img: "partner/wilhelminenhof.png", maps: "Wilhelminenhof-Apotheke Berlin" },
+    { name: "KAOS", kind: "Kunst & Events", rabatt: "10 % auf alle Veranstaltungen von KAOS", url: "https://kaosberlin.de/", img: "partner/kaos.png", maps: "KAOS Wilhelminenhofstraße Berlin" },
+    { name: "Manifattura del Gusto", kind: "Feinkost & Pizzeria", rabatt: "10 % auf den Gesamtbetrag", url: "https://www.manifatturadelgusto.de/", img: "partner/manifattura.png", maps: "Manifattura del Gusto Rathenaustraße 23 Berlin" },
+    { name: "Cento Molliche Trattoria & Pizzeria", kind: "Trattoria & Pizzeria", rabatt: "10 % auf den Gesamtbetrag", url: "https://centomolliche.de/", img: "partner/cento.png", photo: true, maps: "Cento Molliche Hasselwerderstraße 32 Berlin" }
   ];
 
   function mapsUrl(q) {
@@ -754,7 +764,7 @@
   }
 
   // --- Akzentfarben pro Partner (stabil) ---
-  const PALETTE = ["#5B3FA8","#B72E94","#D72E1F","#137F7F","#C4571E","#3E8E5A","#1C6E9C","#9C3B6E","#7A4FB8","#A8240F","#2E7D6E","#B0851F","#864BA6","#C6417A","#3A5BB8"];
+  const PALETTE = ["#5B3FA8","#B72E94","#D72E1F","#137F7F","#C4571E","#3E8E5A","#1C6E9C","#9C3B6E","#7A4FB8","#A8240F","#2E7D6E","#B0851F","#864BA6","#C6417A","#3A5BB8","#6E7A16","#B0432A"];
   PARTNERS.forEach((p, i) => { p.color = p.color || PALETTE[i % PALETTE.length]; });
 
   function initials(name) {
@@ -775,9 +785,13 @@
       : '<div class="pmodal-mono">' + esc(initials(p.name)) + '</div>';
     document.getElementById("pmKind").textContent = p.kind || "Partnerbetrieb";
     document.getElementById("pmName").textContent = p.name;
+    const lg = document.getElementById("pmLogo");
+    if (p.logo) { lg.innerHTML = '<img src="' + p.logo + '" alt="' + esc(p.name) + ' Logo">'; lg.style.display = "block"; } else { lg.style.display = "none"; }
     const rab = document.getElementById("pmRabatt");
     rab.className = p.rabatt ? "pmodal-rabatt" : "pmodal-rabatt tbd";
     rab.innerHTML = "<small>Dein Rabatt</small>" + (p.rabatt ? esc(p.rabatt) : "Rabatt folgt");
+    const tEl = document.getElementById("pmText");
+    if (p.text) { tEl.innerHTML = p.text; tEl.style.display = "block"; } else { tEl.style.display = "none"; }
     let l = "";
     if (p.url) l += '<a class="pmlink-web" href="' + p.url + '" target="_blank" rel="noopener">' + linkLabel(p.url) + '</a>';
     if (p.maps) l += '<a class="pmlink-map" href="' + mapsUrl(p.maps) + '" target="_blank" rel="noopener">Auf Karte ↗</a>';
