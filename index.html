@@ -106,6 +106,7 @@
   .kauflink { color: var(--teal); font-weight: 700; text-decoration: none; }
   .kauflink:hover { text-decoration: underline; }
   section.section.cta-section .kauflink { color: #FFC7BE; text-decoration: underline; }
+  .cta-newsletter { margin-top: 20px; font-size: 14px; color: rgba(255,255,255,0.82); line-height: 1.55; }
 
   .hero-badge { position: absolute; top: 0; right: 0; width: 92px; height: 92px; }
   @media (min-width: 720px) { .hero-badge { width: 116px; height: 116px; } }
@@ -195,8 +196,11 @@
   .partner-alpha h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-mute); margin-bottom: 14px; }
   .alpha-list { list-style: none; column-count: 1; column-gap: 32px; }
   @media (min-width: 640px) { .alpha-list { column-count: 2; } }
-  .alpha-list li { padding: 7px 0; border-bottom: 1px solid var(--rule); break-inside: avoid; display: flex; justify-content: space-between; gap: 12px; }
+  .alpha-list li { padding: 8px 0; border-bottom: 1px solid var(--rule); break-inside: avoid; display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+  .al-main { display: flex; flex-direction: column; gap: 2px; }
   .alpha-list li .an { font-weight: 700; font-size: 14.5px; }
+  .alpha-list li .ar { font-size: 12.5px; color: var(--ink-soft); }
+  .alpha-list li .ar.tbd { color: var(--ink-mute); font-style: italic; }
   .alpha-list li a { font-size: 12.5px; font-weight: 700; color: var(--teal); text-decoration: none; white-space: nowrap; }
   .alpha-list li a:hover { text-decoration: underline; }
 
@@ -536,6 +540,10 @@
         <img src="qr_code.png" alt="QR-Code zur Schöneweider KiezKarte">
       </div>
     </div>
+    <p class="cta-newsletter">
+      Auf dem Laufenden bleiben: Über die weitere Entwicklung informiert der Newsletter von WERK 116.
+      <a class="kauflink" href="https://werk116.de/newsletter-mehrswd" target="_blank" rel="noopener">Zur Newsletter-Anmeldung →</a>
+    </p>
   </section>
 
   <!-- FAQ -->
@@ -622,18 +630,18 @@
   // ==== Partnerdaten — hier pflegst du Namen, Rabatt und Maps-Suche ====
   // rabatt: leer lassen ("") => zeigt "Rabatt folgt". Sobald bekannt, z.B. "10 %".
   const PARTNERS = [
-    { name: "WERK 116 – Buchhandlung am Königsplatz", kind: "Buchhandlung", rabatt: "", maps: "WERK 116 Buchhandlung am Königsplatz Berlin" },
+    { name: "WERK 116 – Buchhandlung am Königsplatz", kind: "Buchhandlung", rabatt: "10 % auf nicht preisgebundene Ware (alles außer Büchern)", maps: "WERK 116 Buchhandlung am Königsplatz Berlin" },
     { name: "Industriesalon Schöneweide", kind: "Museum & Kultur", rabatt: "", maps: "Industriesalon Schöneweide Berlin" },
     { name: "Jennifer Löwe – Lomi Lomi Massagen", kind: "Massage (mobil)", rabatt: "", maps: "" },
     { name: "PROSOL", kind: "", rabatt: "", maps: "PROSOL Schöneweide Berlin" },
     { name: "Allianz Generalagentur Thomas Klein", kind: "Versicherung", rabatt: "", maps: "Allianz Thomas Klein Oberschöneweide Berlin" },
-    { name: "Würfelgasse Berlin", kind: "Spiele & Café", rabatt: "", maps: "Würfelgasse Berlin" },
-    { name: "Dein Radius – Die Fahrradprofis", kind: "Fahrrad", rabatt: "", maps: "Dein Radius Fahrrad Schöneweide Berlin" },
+    { name: "Würfelgasse Berlin", kind: "Spiele & Café", rabatt: "5 % aufs Sortiment", maps: "Würfelgasse Berlin" },
+    { name: "Dein Radius – Die Fahrradprofis", kind: "Fahrrad", rabatt: "10 % aufs Sortiment", maps: "Dein Radius Fahrrad Schöneweide Berlin" },
     { name: "ALGONET GmbH", kind: "Objekteinrichtung", rabatt: "", maps: "ALGONET Schöneweide Berlin" },
     { name: "Sonnenapotheke", kind: "Apotheke", rabatt: "", maps: "Sonnenapotheke Schöneweide Berlin" },
     { name: "Krasse Crêpes", kind: "Crêpes & Café", rabatt: "", maps: "Krasse Crêpes Schöneweide Berlin" },
-    { name: "Lasergame Berlin", kind: "Freizeit", rabatt: "", maps: "Lasergame Berlin Schöneweide" },
-    { name: "Tinas Feinbäckerei", kind: "Bäckerei", rabatt: "", maps: "Tinas Feinbäckerei Schöneweide Berlin" },
+    { name: "Lasergame Berlin", kind: "Freizeit", rabatt: "10 % für die Gruppe bei FUN Lasertag (Mo–Do)", maps: "Lasergame Berlin Schöneweide" },
+    { name: "Tinas Feinbäckerei", kind: "Bäckerei", rabatt: "10 % aufs Brotsortiment", maps: "Tinas Feinbäckerei Schöneweide Berlin" },
     { name: "BerlinKleinod", kind: "", rabatt: "", maps: "BerlinKleinod Berlin" },
     { name: "Wilhelminenhof-Apotheke", kind: "Apotheke", rabatt: "", maps: "Wilhelminenhof-Apotheke Berlin" },
     { name: "KAOS", kind: "Kunst & Veranstaltung", rabatt: "", maps: "KAOS Wilhelminenhofstraße Berlin" }
@@ -654,7 +662,7 @@
       const card = document.createElement("button");
       card.type = "button";
       card.className = "partner-card";
-      const rabattTxt = p.rabatt ? esc(p.rabatt) + " Rabatt" : "Rabatt folgt";
+      const rabattTxt = p.rabatt ? esc(p.rabatt) : "Rabatt folgt";
       const rabattCls = p.rabatt ? "pc-rabatt" : "pc-rabatt tbd";
       const mapsHtml = p.maps
         ? '<a class="pc-maps" href="' + mapsUrl(p.maps) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">Auf Karte ansehen ↗</a>'
@@ -689,7 +697,10 @@
     const link = p.maps
       ? '<a href="' + mapsUrl(p.maps) + '" target="_blank" rel="noopener">Karte ↗</a>'
       : '<span></span>';
-    li.innerHTML = '<span class="an">' + esc(p.name) + '</span>' + link;
+    const rab = p.rabatt
+      ? '<span class="ar">' + esc(p.rabatt) + '</span>'
+      : '<span class="ar tbd">Rabatt folgt</span>';
+    li.innerHTML = '<div class="al-main"><span class="an">' + esc(p.name) + '</span>' + rab + '</div>' + link;
     alphaList.appendChild(li);
   });
   const alphaBox = document.getElementById("partnerAlpha");
