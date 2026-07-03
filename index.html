@@ -205,16 +205,16 @@
   .an-btn { font: inherit; font-weight: 700; font-size: 14.5px; background: none; border: none; padding: 0; text-align: left; cursor: pointer; color: var(--ink); }
   .an-btn:hover { color: var(--red); text-decoration: underline; }
 
-  /* Partner-Kachel Akzentfarbe */
-  .partner-card { gap: 6px; }
-  .partner-card::before { background: var(--pc, var(--red)); }
-  .partner-card:hover { border-color: var(--pc, var(--red)); }
-  .partner-card .pc-rabatt { color: var(--pc, var(--red)); font-size: 13.5px; margin-top: 2px; }
-  .partner-card .pc-rabatt.tbd { color: var(--ink-mute); }
-  .partner-card .pc-more { color: var(--pc, var(--red)); margin-top: 8px; }
+  /* Partner-Kachel: vollflächige Partnerfarbe */
+  .partner-card { gap: 6px; min-height: 128px; background: var(--pc, var(--red)); border-color: transparent; }
+  .partner-card::before { display: none; }
+  .partner-card:hover { border-color: transparent; box-shadow: 0 12px 28px rgba(0,0,0,0.22); transform: translateY(-3px); }
+  .partner-card .pc-name { color: #fff; }
+  .partner-card .pc-kind { color: rgba(255,255,255,0.82); }
+  .partner-card .pc-more { color: rgba(255,255,255,0.92); margin-top: auto; padding-top: 10px; font-weight: 800; }
   .pc-logo { display: flex; align-items: center; justify-content: flex-start; height: 50px; margin-bottom: 4px; }
   .pc-logo img { max-height: 50px; max-width: 160px; object-fit: contain; display: block; }
-  .partner-card-more { cursor: default; border-style: dashed; background: var(--cream-deep); justify-content: center; }
+  .partner-card-more { cursor: default; background: var(--cream-deep); border: 1px dashed var(--rule); justify-content: center; }
   .partner-card-more::before { display: none; }
   .partner-card-more:hover { transform: none; box-shadow: none; border-color: var(--rule); }
   .partner-card-more .pc-name { color: var(--ink-soft); }
@@ -722,7 +722,7 @@
     { name: "Dein Radius – Die Fahrradprofis", kind: "Fahrrad", rabatt: "10 % aufs Sortiment", url: "https://dein-radius.de/", img: "partner/dein-radius.png", maps: "Dein Radius Fahrrad Schöneweide Berlin" },
     { name: "ALGONET GmbH", kind: "Objekteinrichtung", rabatt: "", url: "https://www.algonet.de/", img: "partner/algonet.png", maps: "ALGONET Schöneweide Berlin" },
     { name: "Sonnenapotheke", kind: "Apotheke", rabatt: "", url: "https://sonnen-apotheke-osw.de/", img: "partner/sonnenapotheke.jpg", photo: true, maps: "Sonnen-Apotheke Oberschöneweide Berlin" },
-    { name: "Krasse Crêpes", kind: "Crêpes & Kiosk", rabatt: "", url: "https://www.instagram.com/kioskschoenewelle/", img: "partner/krasse-crepes.jpg", photo: true, maps: "Schönewelle Reinbeckstraße Schöneweide Berlin" },
+    { name: "Krasse Crêpes", kind: "Crêpes & Kiosk", rabatt: "10 % auf alle Crêpes", url: "https://www.instagram.com/kioskschoenewelle/", img: "partner/krasse-crepes.jpg", photo: true, maps: "Schönewelle Reinbeckstraße Schöneweide Berlin" },
     { name: "Lasergame Berlin", kind: "Lasertag & Freizeit", rabatt: "10 % für die Gruppe bei FUN Lasertag (Mo–Do)", url: "https://lasergame-berlin.de/", img: "partner/lasergame.jpg", maps: "Lasergame Berlin Schöneweide" },
     { name: "Tinas Feinbäckerei", kind: "Bäckerei", rabatt: "10 % aufs Brotsortiment", url: "https://www.instagram.com/tinas_feinbaeckerei/", img: "partner/tinas.jpg", photo: true, maps: "Tinas Feinbäckerei Schöneweide Berlin" },
     { name: "BerlinKleinod", kind: "Schmuck-Manufaktur", rabatt: "", url: "https://berlinkleinod.de/", img: "partner/berlinkleinod.png", maps: "BerlinKleinod Schöneweide Berlin" },
@@ -738,7 +738,7 @@
   }
 
   // --- Akzentfarben pro Partner (stabil) ---
-  const PALETTE = ["#5B3FA8","#B72E94","#D72E1F","#137F7F","#B0851F"];
+  const PALETTE = ["#5B3FA8","#B72E94","#D72E1F","#137F7F","#C4571E","#3E8E5A","#1C6E9C","#9C3B6E","#7A4FB8","#A8240F","#2E7D6E","#B0851F","#864BA6","#C6417A","#3A5BB8"];
   PARTNERS.forEach((p, i) => { p.color = p.color || PALETTE[i % PALETTE.length]; });
 
   function initials(name) {
