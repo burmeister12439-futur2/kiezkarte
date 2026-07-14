@@ -344,6 +344,45 @@
   .footer-legal { border-top: 1px solid var(--rule); margin-top: 28px; padding-top: 18px; text-align: center; font-size: 13px; color: var(--ink-mute); }
   .footer-legal a { color: var(--ink-soft); text-decoration: none; margin: 0 12px; }
   .footer-legal a:hover { color: var(--red); text-decoration: underline; }
+
+  /* --- Neuer Partner: pulsierender Punkt + Kachel-Label --- */
+  .partner-card { position: relative; }
+  .pc-neu {
+    position: absolute; top: 10px; right: 10px; z-index: 2;
+    background: #FFDD00; color: #1A1A1A;
+    font-size: 10px; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase;
+    padding: 4px 9px; border-radius: 999px; line-height: 1;
+  }
+  .newdot {
+    position: fixed; right: 22px; bottom: 24px; z-index: 60;
+    width: 118px; height: 118px; border-radius: 50%; border: 0; padding: 0;
+    background: var(--red); color: #fff; cursor: pointer; font: inherit; text-align: center;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.28);
+    animation: nd-bob 2.8s ease-in-out infinite;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .newdot small {
+    font-size: 9px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+    opacity: 0.92; line-height: 1.25; max-width: 88px;
+  }
+  .newdot b { font-size: 14px; font-weight: 800; line-height: 1.15; max-width: 96px; }
+  .newdot::before, .newdot::after {
+    content: ""; position: absolute; inset: 0; border-radius: 50%;
+    border: 2px solid var(--red); animation: nd-pulse 2.4s ease-out infinite; pointer-events: none;
+  }
+  .newdot::after { animation-delay: 1.2s; }
+  .newdot:hover { transform: scale(1.06); }
+  .newdot.hide { opacity: 0; transform: scale(0.7); pointer-events: none; }
+  @keyframes nd-pulse { 0% { transform: scale(1); opacity: 0.65; } 100% { transform: scale(1.9); opacity: 0; } }
+  @keyframes nd-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+  @media (max-width: 640px) {
+    .newdot { width: 100px; height: 100px; right: 14px; bottom: 16px; }
+    .newdot b { font-size: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .newdot, .newdot::before, .newdot::after { animation: none; }
+  }
 </style>
 </head>
 <body>
@@ -542,8 +581,8 @@
     <div class="eyebrow">Hier sparst du</div>
     <h2>Diese Betriebe <span class="red">sind dabei.</span></h2>
     <p class="lede">
-      17 Partnerbetriebe aus Ober- und Niederschöneweide machen von Anfang an mit — und es
-      werden mehr. Tippe auf einen Betrieb — für Rabatt, Website und Lage.
+      18 Partnerbetriebe aus Ober- und Niederschöneweide machen mit, und es werden mehr.
+      Neu dabei: <b>Yoga Labor</b>. Tippe auf einen Betrieb — für Rabatt, Website und Lage.
     </p>
 
     <div class="partner-tools">
@@ -753,7 +792,8 @@
     { name: "Wilhelminenhof-Apotheke", kind: "Apotheke", rabatt: "10 % Rabatt (nicht auf rezeptpflichtige Arzneimittel)", url: "https://wilhelminenhof-apotheke.de/", img: "partner/wilhelminenhof.png", photo: true, maps: "Wilhelminenhof-Apotheke Berlin" },
     { name: "KAOS", kind: "Kunst & Events", rabatt: "10 % auf alle Veranstaltungen von KAOS", url: "https://kaosberlin.de/", img: "partner/kaos.png", maps: "KAOS Wilhelminenhofstraße Berlin" },
     { name: "Manifattura del Gusto", kind: "Feinkost & Pizzeria", rabatt: "10 % auf den Gesamtbetrag", url: "https://www.manifatturadelgusto.de/", img: "partner/manifattura.png", maps: "Manifattura del Gusto Rathenaustraße 23 Berlin" },
-    { name: "Cento Molliche Trattoria & Pizzeria", kind: "Trattoria & Pizzeria", rabatt: "10 % auf den Gesamtbetrag", url: "https://centomolliche.de/", img: "partner/cento.png", photo: true, maps: "Cento Molliche Hasselwerderstraße 32 Berlin" }
+    { name: "Cento Molliche Trattoria & Pizzeria", kind: "Trattoria & Pizzeria", rabatt: "10 % auf den Gesamtbetrag", url: "https://centomolliche.de/", img: "partner/cento.png", photo: true, maps: "Cento Molliche Hasselwerderstraße 32 Berlin" },
+    { name: "Yoga Labor", kind: "Yoga-Studio", neu: true, rabatt: "10 % auf das gesamte Angebot", url: "https://www.yogalaborberlin.de/", img: "partner/yogalabor.png", text: "Das Yoga Labor liegt direkt am Spreeufer in Oberschöneweide. Mit der KiezKarte gibt es 10 % Rabatt auf das gesamte Angebot: auf einzelne Yogastunden und Kurse ebenso wie auf Bildungszeiten, Retreats und Ausbildungen. Wer online üben möchte, kann das ebenfalls tun.", maps: "Yoga Labor Berlin Oberschöneweide" }
   ];
 
   function mapsUrl(q) {
@@ -764,7 +804,7 @@
   }
 
   // --- Akzentfarben pro Partner (stabil) ---
-  const PALETTE = ["#5B3FA8","#B72E94","#D72E1F","#137F7F","#C4571E","#3E8E5A","#1C6E9C","#9C3B6E","#7A4FB8","#A8240F","#2E7D6E","#B0851F","#864BA6","#C6417A","#3A5BB8","#6E7A16","#B0432A"];
+  const PALETTE = ["#5B3FA8","#B72E94","#D72E1F","#137F7F","#C4571E","#3E8E5A","#1C6E9C","#9C3B6E","#7A4FB8","#A8240F","#2E7D6E","#B0851F","#864BA6","#C6417A","#3A5BB8","#6E7A16","#B0432A","#12A196"];
   PARTNERS.forEach((p, i) => { p.color = p.color || PALETTE[i % PALETTE.length]; });
 
   function initials(name) {
@@ -818,6 +858,7 @@
       card.className = "partner-card";
       card.style.setProperty("--pc", p.color);
       card.innerHTML =
+        (p.neu ? '<span class="pc-neu">Neu</span>' : '') +
         '<span class="pc-name">' + esc(p.name) + '</span>' +
         (p.kind ? '<span class="pc-kind">' + esc(p.kind) + '</span>' : '') +
         '<span class="pc-more">Details ansehen →</span>';
@@ -840,7 +881,31 @@
     }
     return arr;
   }
-  renderGrid(shuffle(PARTNERS));
+  // Neue Partner stehen immer vorn, der Rest wird gemischt
+  const NEUE = PARTNERS.filter(p => p.neu);
+  renderGrid(NEUE.concat(shuffle(PARTNERS.filter(p => !p.neu))));
+
+  // --- Pulsierender Punkt: führt zum neuesten Partner ---
+  if (NEUE.length) {
+    const ziel = NEUE[NEUE.length - 1];
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "newdot";
+    dot.setAttribute("aria-label", "Neuer Partner: " + ziel.name + " — anzeigen");
+    dot.innerHTML = '<small>Neuer Partner</small><b>' + esc(ziel.name) + '</b>';
+    dot.addEventListener("click", () => {
+      document.getElementById("partner").scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => openModal(ziel), 650);
+      dot.classList.add("hide");
+    });
+    document.body.appendChild(dot);
+    // Punkt verschwindet, sobald die Partner-Sektion im Blick ist
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(entries => {
+        entries.forEach(e => dot.classList.toggle("hide", e.isIntersecting));
+      }, { threshold: 0.18 }).observe(document.getElementById("partner"));
+    }
+  }
 
   // --- Alphabetische Übersicht ---
   const alphaList = document.getElementById("alphaList");
