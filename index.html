@@ -355,7 +355,7 @@
   }
   .newdot {
     position: fixed; right: 22px; bottom: 24px; z-index: 60;
-    width: 118px; height: 118px; border-radius: 50%; border: 0; padding: 0;
+    width: 146px; height: 146px; border-radius: 50%; border: 0; padding: 0;
     background: var(--red); color: #fff; cursor: pointer; font: inherit; text-align: center;
     display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.28);
@@ -364,9 +364,9 @@
   }
   .newdot small {
     font-size: 9px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
-    opacity: 0.92; line-height: 1.25; max-width: 88px;
+    opacity: 0.92; line-height: 1.25; max-width: 110px;
   }
-  .newdot b { font-size: 14px; font-weight: 800; line-height: 1.15; max-width: 96px; }
+  .newdot b { font-size: 14px; font-weight: 800; line-height: 1.18; max-width: 118px; }
   .newdot::before, .newdot::after {
     content: ""; position: absolute; inset: 0; border-radius: 50%;
     border: 2px solid var(--red); animation: nd-pulse 2.4s ease-out infinite; pointer-events: none;
@@ -377,8 +377,8 @@
   @keyframes nd-pulse { 0% { transform: scale(1); opacity: 0.65; } 100% { transform: scale(1.9); opacity: 0; } }
   @keyframes nd-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
   @media (max-width: 640px) {
-    .newdot { width: 100px; height: 100px; right: 14px; bottom: 16px; }
-    .newdot b { font-size: 12px; }
+    .newdot { width: 124px; height: 124px; right: 14px; bottom: 16px; }
+    .newdot b { font-size: 12px; max-width: 104px; }
   }
   @media (prefers-reduced-motion: reduce) {
     .newdot, .newdot::before, .newdot::after { animation: none; }
@@ -581,7 +581,7 @@
     <div class="eyebrow">Hier sparst du</div>
     <h2>Diese Betriebe <span class="red">sind dabei.</span></h2>
     <p class="lede">
-      19 Partnerbetriebe aus Ober- und Niederschöneweide machen mit, und es werden mehr.
+      20 Partnerbetriebe aus Ober- und Niederschöneweide machen mit, und es werden mehr.
       Neu dabei: <b>KURA – Die Schwimmschule</b>. Tippe auf einen Betrieb — für Rabatt, Website und Lage.
     </p>
 
@@ -793,7 +793,8 @@
     { name: "Manifattura del Gusto", kind: "Feinkost & Pizzeria", rabatt: "10 % auf den Gesamtbetrag", url: "https://www.manifatturadelgusto.de/", img: "partner/manifattura.png", maps: "Manifattura del Gusto Rathenaustraße 23 Berlin" },
     { name: "Cento Molliche Trattoria & Pizzeria", kind: "Trattoria & Pizzeria", rabatt: "10 % auf den Gesamtbetrag", url: "https://centomolliche.de/", img: "partner/cento.png", photo: true, maps: "Cento Molliche Hasselwerderstraße 32 Berlin" },
     { name: "Yoga Labor", kind: "Yoga-Studio", rabatt: "10 % auf das gesamte Angebot", url: "https://www.yogalaborberlin.de/", img: "partner/yogalabor.png", text: "Das Yoga Labor liegt direkt am Spreeufer in Oberschöneweide. Mit der KiezKarte gibt es 10 % Rabatt auf das gesamte Angebot: auf einzelne Yogastunden und Kurse ebenso wie auf Bildungszeiten, Retreats und Ausbildungen. Wer online üben möchte, kann das ebenfalls tun.", maps: "Yoga Labor Berlin Oberschöneweide" },
-    { name: "KURA – Die Schwimmschule", kind: "Schwimmschule", neu: true, rabatt: "10 % auf das gesamte Angebot", url: "https://www.kura-pro.com/", img: "partner/kura.jpg", photo: true, logo: "partner/kura-logo.png", text: "Schwimmunterricht mit Herz am Strandbad Wendenschloss. Mit der KiezKarte gibt es 10 % Rabatt auf das gesamte Angebot.", maps: "KURA Schwimmschule Strandbad Wendenschloss Berlin" }
+    { name: "KURA – Die Schwimmschule", kind: "Schwimmschule", neu: true, rabatt: "10 % auf das gesamte Angebot", url: "https://www.kura-pro.com/", img: "partner/kura.jpg", photo: true, logo: "partner/kura-logo.png", color: "#0E3A53", text: "Schwimmunterricht mit Herz am Strandbad Wendenschloss. Mit der KiezKarte gibt es 10 % Rabatt auf das gesamte Angebot.", maps: "KURA Schwimmschule Strandbad Wendenschloss Berlin" },
+    { name: "LRS Training", kind: "LRS-Lernförderung", rabatt: "500 Euro Preisvorteil auf den 7-Tage-Kurs für Kinder", url: "https://lrs-deutschland.de/trainer/kristina-rossbach/", img: "partner/lrs.jpg", photo: true, maps: "" }
   ];
 
   function mapsUrl(q) {
