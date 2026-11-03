@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Schöneweider KiezKarte — Schöneweide nimmt es selbst in die Hand.</title>
-<meta name="description" content="Mit der Schöneweider KiezKarte unterstützt du lokale Betriebe und Kulturprojekte in Ober- und Niederschöneweide — und sparst dabei selbst. 49 € in der Pilotphase 2026, gültig bis 31.12.2026.">
+<meta name="description" content="Mit der Schöneweider KiezKarte unterstützt du lokale Betriebe und Kulturprojekte in Ober- und Niederschöneweide — und sparst dabei selbst. Seit 2. November 25 € fürs Restjahr statt 49 €, gültig bis 31.12.2026.">
 <meta property="og:title" content="Schöneweider KiezKarte">
 <meta property="og:description" content="Einkaufen · Sparen · Kiez stärken. Deine Karte für Schöneweide — ab 4. Juli 2026.">
 <meta property="og:type" content="website">
@@ -345,6 +345,42 @@
   .footer-legal a { color: var(--ink-soft); text-decoration: none; margin: 0 12px; }
   .footer-legal a:hover { color: var(--red); text-decoration: underline; }
 
+  /* --- Preisband und Preisanzeige --- */
+  .preisband {
+    display: block; background: var(--red); color: #fff; text-decoration: none;
+    position: sticky; top: 5px; z-index: 9;
+  }
+  .pb-paar { white-space: nowrap; }
+  .preisband-inner {
+    max-width: var(--maxw); margin: 0 auto; padding: 11px 24px;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+    gap: 9px 16px; font-size: 15px; line-height: 1.4; text-align: center;
+  }
+  .pb-marke {
+    background: #fff; color: var(--red); font-size: 11px; font-weight: 800;
+    letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px;
+    border-radius: 999px; white-space: nowrap;
+  }
+  .pb-text b { font-weight: 800; }
+  .pb-btn { color: #fff; font-weight: 800; text-decoration: underline; white-space: nowrap; }
+  .pb-btn:hover { text-decoration: none; }
+  .altpreis { text-decoration: line-through; opacity: 0.7; font-weight: 700; }
+  .hero-preis {
+    margin-top: 24px; display: flex; align-items: baseline; justify-content: center;
+    flex-wrap: wrap; gap: 4px 14px;
+  }
+  .hp-alt { font-size: 26px; font-weight: 800; color: var(--ink-mute); text-decoration: line-through; }
+  .hp-neu { font-size: 46px; font-weight: 800; color: var(--red); line-height: 1; letter-spacing: -0.02em; }
+  .hp-note {
+    flex-basis: 100%; text-align: center; margin-top: 8px;
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute);
+  }
+  @media (max-width: 640px) {
+    .hp-neu { font-size: 38px; }
+    .preisband-inner { font-size: 13px; padding: 9px 16px; gap: 0; }
+    .pb-marke, .pb-btn { display: none; }
+  }
+
   /* --- Neuer Partner: pulsierender Punkt + Kachel-Label --- */
   .partner-card { position: relative; }
   .pc-neu {
@@ -401,6 +437,15 @@
 
 <div class="holo"></div>
 
+<!-- ANKÜNDIGUNG: neuer Preis -->
+<a class="preisband" href="#kaufen">
+  <span class="preisband-inner">
+    <span class="pb-marke">Neuer Preis</span>
+    <span class="pb-text">Fürs Restjahr nur noch <span class="pb-paar"><b>25&nbsp;€</b> <span class="altpreis">49&nbsp;€</span></span>, gültig bis 31.12.2026.</span>
+    <span class="pb-btn">Karte sichern →</span>
+  </span>
+</a>
+
 <div class="container">
 
   <!-- TOPBAR -->
@@ -426,14 +471,19 @@
       Niederschöneweide und die <b>lokalen Betriebe</b>. Du sparst dabei und stärkst den Kiez.
     </p>
     <div class="hero-cta-row">
-      <a class="btn-primary" href="#kaufen">Karte sichern — 49 €</a>
+      <a class="btn-primary" href="#kaufen">Karte sichern — 25 €</a>
       <a class="btn-ghost" href="#partner">Wo du sparst</a>
+    </div>
+    <div class="hero-preis">
+      <span class="hp-alt">49 €</span>
+      <span class="hp-neu">25 €</span>
+      <span class="hp-note">Preis fürs Restjahr, seit 2. November</span>
     </div>
     <div class="hero-card-wrap">
       <img class="hero-card" src="kiezkarte.png" alt="Die Schöneweider KiezKarte 2026 mit Kaisersteg-Motiv — Einkaufen, Sparen, Kiez stärken">
     </div>
     <div class="hero-meta">
-      <b>49 €</b> · gültig bis 31.12.2026 · Pilotstart 4. Juli 2026 zum Brückenfest
+      <b>25 €</b> · gültig bis 31.12.2026 · Pilotstart 4. Juli 2026 zum Brückenfest
     </div>
   </section>
 
@@ -485,7 +535,7 @@
         <div class="dot">1</div>
         <div class="stext">
           <h3>Karte kaufen</h3>
-          <p>49 € in der Pilotphase — erhältlich beim <a class="kauflink" href="https://www.google.com/maps/search/?api=1&amp;query=WERK%20116%20Buchhandlung%20am%20K%C3%B6nigsplatz%20Berlin" target="_blank" rel="noopener">WERK 116</a>, im <a class="kauflink" href="https://www.google.com/maps/search/?api=1&amp;query=Industriesalon%20Sch%C3%B6neweide%20Berlin" target="_blank" rel="noopener">Industriesalon</a> und neu in der <a class="kauflink" href="https://www.google.com/maps/search/?api=1&amp;query=W%C3%BCrfelgasse%20Rathenaustra%C3%9Fe%20Berlin" target="_blank" rel="noopener">Würfelgasse</a>. Gültig bis 31.12.2026.</p>
+          <p><b>25 €</b> fürs Restjahr <span class="altpreis">49 €</span> — erhältlich beim <a class="kauflink" href="https://www.google.com/maps/search/?api=1&amp;query=WERK%20116%20Buchhandlung%20am%20K%C3%B6nigsplatz%20Berlin" target="_blank" rel="noopener">WERK 116</a>, im <a class="kauflink" href="https://www.google.com/maps/search/?api=1&amp;query=Industriesalon%20Sch%C3%B6neweide%20Berlin" target="_blank" rel="noopener">Industriesalon</a> und neu in der <a class="kauflink" href="https://www.google.com/maps/search/?api=1&amp;query=W%C3%BCrfelgasse%20Rathenaustra%C3%9Fe%20Berlin" target="_blank" rel="noopener">Würfelgasse</a>. Gültig bis 31.12.2026.</p>
         </div>
       </div>
       <div class="step-row">
@@ -556,7 +606,7 @@
       in Kiez und Kultur zurück. Das Geld bleibt, wo es gebraucht wird.
     </p>
     <div class="kreis-wrap">
-      <svg viewBox="0 0 600 360" role="img" aria-label="Kreislauf: Du zahlst 49 Euro, bekommst Rabatt bei lokalen Betrieben, ein Teil fließt in Kiez und Kultur, das fördert dich zurück.">
+      <svg viewBox="0 0 600 360" role="img" aria-label="Kreislauf: Du zahlst 25 Euro, bekommst Rabatt bei lokalen Betrieben, ein Teil fließt in Kiez und Kultur, das fördert dich zurück.">
         <defs>
           <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" fill="#8A8A8A"></path>
@@ -575,7 +625,7 @@
         <!-- Knoten Du -->
         <circle cx="300" cy="58" r="50" fill="#E9B340"></circle>
         <text x="300" y="52" font-size="17" font-weight="800" fill="#1A1A1A" text-anchor="middle">Du</text>
-        <text x="300" y="74" font-size="15" font-weight="800" fill="#1A1A1A" text-anchor="middle">49 €</text>
+        <text x="300" y="74" font-size="15" font-weight="800" fill="#1A1A1A" text-anchor="middle">25 €</text>
         <!-- Knoten Betriebe -->
         <circle cx="108" cy="300" r="56" fill="#D72E1F"></circle>
         <text x="108" y="295" font-size="14.5" font-weight="800" fill="#fff" text-anchor="middle">Lokale</text>
@@ -626,16 +676,16 @@
     <div class="geldbox-wrap">
       <div class="geldbox-row">
         <div class="geldbox-item">
-          <div class="num">≈ 5.000&nbsp;€</div>
+          <div class="num">≈ 2.500&nbsp;€</div>
           <div class="cap">bei <b>200 verkauften Karten</b> in den Kiezfonds</div>
         </div>
         <div class="geldbox-item">
-          <div class="num">≈ 12.000&nbsp;€</div>
+          <div class="num">≈ 6.000&nbsp;€</div>
           <div class="cap">bei <b>500 verkauften Karten</b> in den Kiezfonds</div>
         </div>
       </div>
       <div class="geldbox-hint">
-        Pilotphase 2026, je 49 € pro Karte. Genug für eine Lange Nacht der Wilhelminenhofstraße
+        Pilotphase 2026, je 25 € pro Karte. Genug für eine Lange Nacht der Wilhelminenhofstraße
         oder ein Freiluftkino am Spreeufer — finanziert aus dem Kiez für den Kiez.
       </div>
     </div>
@@ -664,13 +714,13 @@
       Seit dem <b>Brückenfest am 4. Juli 2026</b> gibt es die KiezKarte beim <a class="kauflink" href="https://www.google.com/maps/search/?api=1&amp;query=WERK%20116%20Buchhandlung%20am%20K%C3%B6nigsplatz%20Berlin" target="_blank" rel="noopener">WERK 116</a>,
       im <a class="kauflink" href="https://www.google.com/maps/search/?api=1&amp;query=Industriesalon%20Sch%C3%B6neweide%20Berlin" target="_blank" rel="noopener">Industriesalon</a>
       und neu in der <a class="kauflink" href="https://www.google.com/maps/search/?api=1&amp;query=W%C3%BCrfelgasse%20Rathenaustra%C3%9Fe%20Berlin" target="_blank" rel="noopener">Würfelgasse</a> in der Rathenaustraße.
-      49 € kostet sie in der Pilotphase, gültig ist sie bis 31.12.2026.
+      Seit dem 2. November kostet sie fürs Restjahr nur noch <b>25 €</b> statt 49 €, gültig ist sie bis 31.12.2026.
     </p>
     <div class="cta-box">
       <div class="cta-box-text">
         <h3>Unter den ersten 500 sein</h3>
         <p>
-          Kein Monatsbeitrag — einmal 49 €, ein ganzes Kiezjahr. Alle Infos und die
+          Kein Monatsbeitrag — einmal 25 €, ein ganzes Kiezjahr. Alle Infos und die
           aktuelle Partnerliste hier auf der Seite.<br>
           <b>www.schoeneweider-kiezkarte.de</b>
         </p>
@@ -697,7 +747,7 @@
       </div>
       <div class="faq-item">
         <h3>Wie lange gilt die Karte?</h3>
-        <p>Die Pilot-Karte kostet <b>49 €</b> und gilt bis zum <b>31. Dezember 2026</b>. Kein Monatsbeitrag, keine laufenden Kosten.</p>
+        <p>Seit dem <b>2. November 2026</b> kostet die Pilot-Karte <b>25 €</b> statt 49 € und gilt bis zum <b>31. Dezember 2026</b>. Kein Monatsbeitrag, keine laufenden Kosten.</p>
       </div>
       <div class="faq-item">
         <h3>Wie viel spare ich?</h3>
