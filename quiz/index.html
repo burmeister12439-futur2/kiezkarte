@@ -118,7 +118,7 @@ function anfang(){
     '<div style="margin-top:14px;font-size:18px;font-weight:700;color:#FFD98A">'+F.length+' Fragen rund um Schöneweide</div>'+
     (uebung ? '<div class="klein" style="margin-top:22px">Übungsrunde. Zählt nicht für den Preis.</div>'
             : '<div style="margin-top:26px;font-size:17px;line-height:1.5">Wer <b>alle '+F.length+' richtig</b> hat,<br>gewinnt '+PREIS+'.</div>'+
-              '<div class="klein" style="margin-top:12px">Die Zeit läuft mit. Bei Gleichstand entscheidet sie.<br>Teilnahme bis '+SCHLUSS+'.</div>')+
+              '<div class="klein" style="margin-top:12px">Am Ende bekommst du einen Code. Zeig ihn am Tresen,<br>dann stehst du in der Rangliste. Teilnahme bis '+SCHLUSS+'.</div>')+
     '<input id="nam" placeholder="Dein Name" autocomplete="name" maxlength="28">'+
     '<div class="klein" style="margin-top:10px;text-align:left">Der Name bleibt auf deinem Handy. Er wird nirgendwo hingeschickt, er steckt nur im Code, damit am Tresen niemand fremde Punkte abholt.</div>'+
     '<button class="knopf" onclick="los()">Los geht\'s</button></div>';
@@ -176,7 +176,7 @@ function schluss(){
   const sek = (Date.now()-start)/1000, jetzt = new Date();
   const endeMin = jetzt.getHours()*60 + jetzt.getMinutes();
   const voll = punkte === F.length;
-  const code = (voll && !uebung) ? codeBauen(name, punkte, sek, endeMin) : "";
+  const code = uebung ? "" : codeBauen(name, punkte, sek, endeMin);
   if (!uebung && !gespielt()) merken({name, punkte, sekunden: Math.round(sek), code});
   const lob = voll ? 'Alles richtig.'
     : punkte >= F.length*0.7 ? 'Stark. Du kennst deinen Kiez.'
@@ -190,11 +190,13 @@ function schluss(){
     '<div class="klein">in '+mmss(sek)+'</div>'+
     '<div style="font-size:22px;font-weight:800;margin-top:16px">'+lob+'</div>'+
     (code
-      ? '<div style="margin-top:24px;font-size:17px;line-height:1.5">Du hast gewonnen: '+PREIS+'.<br>Zeig diesen Code am Tresen.</div>'+
+      ? (voll
+          ? '<div style="margin-top:24px;font-size:17px;line-height:1.5">Du hast gewonnen: '+PREIS+'.<br>Zeig diesen Code am Tresen.</div>'
+          : '<div style="margin-top:24px;font-size:17px;line-height:1.5">Zeig diesen Code am Tresen,<br>dann kommst du in die Rangliste.</div>')+
         '<div class="code">'+code.slice(0,3)+'-'+code.slice(3)+'</div>'+
-        '<div class="klein">Gilt mit dem Namen <b>'+name+'</b>.<br>Bildschirmfoto machen, dann geht er nicht verloren.</div>'
-      : (voll ? '<div style="margin-top:22px;font-size:17px">Übungsrunde, also kein Code. Es zählt die erste Runde.</div>'
-              : '<div style="margin-top:22px;font-size:17px;line-height:1.5">Für den Preis braucht es alle '+F.length+'.<br>Die Karte gibt es trotzdem: 25 € bis zum 31. Dezember.</div>'))+
+        '<div class="klein">Gilt mit dem Namen <b>'+name+'</b>.<br>Bildschirmfoto machen, dann geht er nicht verloren.</div>'+
+        (voll ? '' : '<div class="klein" style="margin-top:14px">Für den Preis braucht es alle '+F.length+'. Die Karte gibt es trotzdem: 25 € bis zum 31. Dezember.</div>')
+      : '<div style="margin-top:22px;font-size:17px">Übungsrunde, also kein Code. Es zählt die erste Runde.</div>')+
     '<a href="https://schoeneweider-kiezkarte.de" style="display:inline-block;margin-top:22px;color:#FFD98A;font-weight:800;font-size:16px">schoeneweider-kiezkarte.de</a>'+
     '<button class="knopf leise" onclick="uebung=true;anfang()">Noch eine Runde</button></div>';
 }
