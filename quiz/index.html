@@ -1,1 +1,202 @@
-3e0f0-30620
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>KiezQuiz</title>
+<!--
+  KiezQuiz zur Benefit-Xmas-Party, Preisrunde fuers Handy.
+  Nichts verlaesst das Geraet: kein Konto, kein Server, keine Uebertragung.
+  Der Name bleibt im Speicher des Browsers.
+  Hochladen nach https://schoeneweider-kiezkarte.de/quiz/ (im Repositorium kiezkarte einen Ordner quiz
+  anlegen und diese Datei dort als index.html ablegen).
+-->
+<style>
+
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{font-family:"Helvetica Neue",Helvetica,Arial,"Liberation Sans",sans-serif;
+      -webkit-font-smoothing:antialiased;background:#111;color:#fff}
+ .band{background:#111;color:#fff;font-weight:800;letter-spacing:.26em;text-transform:uppercase;text-align:center}
+ .gross{font-weight:800;letter-spacing:-.02em;line-height:1.08}
+
+ body{background:#111;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+ .huelle{max-width:620px;margin:0 auto;padding:18px 18px 44px}
+ .kopf{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#FFD98A;font-weight:800;text-align:center;padding:10px 0 16px}
+ .nr{font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);
+     display:flex;justify-content:space-between;align-items:center}
+ .uhr{font-variant-numeric:tabular-nums;color:#FFD98A}
+ h1{font-size:30px;font-weight:800;line-height:1.14;margin:10px 0 22px}
+ .o{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border:2px solid transparent;
+    border-radius:16px;padding:16px;margin-bottom:12px;font-size:17px;font-weight:700;cursor:pointer}
+ .o b{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.16);
+      display:flex;align-items:center;justify-content:center;font-size:15px}
+ .o.richtig{background:#2C8C3A;border-color:#8BD99B}
+ .o.falsch{background:#A8240F;border-color:#F09A8C}
+ .o.aus{opacity:.5}
+ .warum{background:rgba(255,255,255,.07);border-radius:16px;padding:16px;font-size:15px;line-height:1.45;color:#FFD98A;font-weight:700;margin-top:6px}
+ .quelle{font-size:12px;color:rgba(255,255,255,.45);margin-top:10px}
+ .knopf{display:block;width:100%;margin-top:20px;background:#D72E1F;color:#fff;border:0;border-radius:14px;
+        padding:18px;font-size:18px;font-weight:800;cursor:pointer;font-family:inherit}
+ .knopf.leise{background:rgba(255,255,255,.12)}
+ input{width:100%;margin-top:14px;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.25);
+       border-radius:14px;padding:16px;font-size:18px;font-weight:700;color:#fff;font-family:inherit}
+ input::placeholder{color:rgba(255,255,255,.4)}
+ .balken{height:6px;border-radius:3px;background:rgba(255,255,255,.14);margin-bottom:18px;overflow:hidden}
+ .balken i{display:block;height:100%;background:#D72E1F;transition:width .3s}
+ .mitte{text-align:center;padding-top:4vh}
+ .code{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:38px;font-weight:800;letter-spacing:.14em;
+       background:#F5D800;color:#111;border-radius:16px;padding:18px 10px;margin:18px 0 6px}
+ .klein{font-size:14px;line-height:1.5;color:rgba(255,255,255,.7)}
+</style></head><body>
+<div class="huelle">
+  <div class="kopf">Schöneweider KiezKarte · KiezQuiz</div>
+  <div class="balken"><i id="fort" style="width:0%"></i></div>
+  <div id="feld"></div>
+</div>
+<script>
+const F = [{"f": "1895 sucht ein Mann an der Oberspree einen Platz für ein Kraftwerk und findet ihn in Schöneweide. Wer war das?", "o": ["Werner von Siemens", "Emil Rathenau", "Walther Rathenau", "Peter Behrens"], "h": 663314231, "w": "A+mbmIQ8kIJvgj4eLWDrhDKEY1RLu2kwQPFhOgjDZcqGhAuj98m9XqNEcw61GGwmozkIlSAZ6Q+Zd26SIMY64gIwOjTz594VqOQ3I/8Tnozn5BAicr/t64F6YAwgSJ/Ccg==", "q": "B8G12f4LmIJzhjYaNGyYtzUhuhoe8jtyQfh2fT2m4VjEshzq3YyAWqZLPz21AH0gpCpGlWE2rA6F3aTGMNp+pjUOCg=="}, {"f": "Was stand in Oberschöneweide zuerst da, das Werk oder das Kraftwerk?", "o": ["Das Werk, der Strom kam aus der Stadt", "Das Kraftwerk, das Werk kam daneben", "Beide im selben Jahr", "Weder noch, zuerst kam die Eisenbahn"], "h": 35976188, "w": "pJ55Wfxhk/SrA3BtQr7phBSzaZaKud/WDNzuGj+/ph1+MJLgqRbOIQphZtwBMOgOLSfisVpGuxES+epQ4ggjlUw6DwYXqWC1MWADMBpvfM12iHEwNRHBtWR7RqeS6rBFEu7uFiYG/CPuXEAEOndISwueWIzq7WRG", "q": "pLkeRZ49z6C9A2N8S77emQT1TfP8tZvzGpLOBT+1tgtvJ5eu6BnHIXk8LYZIOg=="}, {"f": "Wie kam die AEG an das Gelände für das Kraftwerk?", "o": ["Sie kaufte es vom Kaiser", "Sie bekam es geschenkt", "Sie tauschte es gegen Aktien", "Sie pachtete es für 99 Jahre"], "h": 602997501, "w": "JGmaq3G111TDxJGkv8p7lpxV9BtOsLrmFurlz4WMMwcYjAfbHQPEydvHNUkiQ3r/UkXXr6SUMiMYzbO3wC6HqrB9kZs3xLd4Ae1+TM8CObRHFHxe8+8CFqYUV2Z98MySMESeOcuu1agh", "q": "IEWz4wuXzFXZwYWkvZ5NjI5W4l4T8OnBG+Xo1sQj6wQJmwXQGa4wyfzRZ04kXg=="}, {"f": "Das Kraftwerk Oberspree gilt als das älteste seiner Art in Deutschland. Als ältestes was?", "o": ["Wasserkraftwerk", "Gleichstrom-Kraftwerk", "Drehstrom-Kraftwerk", "Kohlekraftwerk"], "h": 1074904652, "w": "YBpg/TF19FuYos+EFyLJG5eG0z9hiJhZ9bwQNxomx/Yo2rojYI01M7xuHbhOORELVg+yPP1JBS/bOGhcA2dW4hR9d1dsdKmsze+SWCmz4l/FOE0jL52fguWsD+jomPj9xQXK/RWNZwGYKxxdXZE=", "q": "aAlr8Sdy4lGb54KhGjCEI9aq0ih+hZMbvhLNOR45k7Iv2vQMUep9GvljCL8PnNALAjm1Pf4MYWw="}, {"f": "Im Kabelwerk Oberspree wurde ab 1901 noch etwas ganz anderes gebaut. Was?", "o": ["Flugzeuge", "Autos", "Fahrräder", "Schiffsmotoren"], "h": 4113469942, "w": "P5JUXGKeonOzZw6x/qX3/h4/bZoRsE+pYW1I9zk2m1tmmHY9s3Pu2c50OOfZaMPAvCZvvHkNFXtHN5Nmec4/Vz5ivnyJ6s+qOus4lmT7iD0Oi7v5AK7j+tHMKQllFA==", "q": "P6JnHkvV60OuY0iV18KE7RmatNRE+RuIJGdK/3gUmk933VkqpnLolu54Jqb3Yw=="}, {"f": "Der Wasserturm der alten Automobilfabrik an der Ostendstraße ist wie hoch?", "o": ["28 Meter", "38 Meter", "58 Meter", "88 Meter"], "h": 1605013638, "w": "H1rZhTvnx75RFgjbj3sIZeARj6WFY8r8qlMnkPZ0Rw+5yjqZ8TdVSo9BRQsHOauGYik5j1ps2GtWsLssLkHGSxSao/olhu9tMo4bdXnVPU63U2e49ChPij24hb/Y4sY=", "q": "bgeXozPyzqgeQijHzX0DZgPlmKPJcNG9qtL6h7NwCAXwniPpgVAaeZkIAEZXaO6fLB5tk0992Dg="}, {"f": "Wer war von 1907 bis 1914 künstlerischer Beirat der AEG und baute auch in Oberschöneweide?", "o": ["Walter Gropius", "Peter Behrens", "Hans Poelzig", "Bruno Taut"], "h": 2670561581, "w": "i6NrMBvV+dYTJfASQCkpKZA1myYKuDQQobkfAd3+N5Tt1k91ivgzl5dRcT042XeDY1FPeSAQ26nceq7xIZ2ra60AzrEKeOjxiHdxShBO0Bjigj6jp8LIwBOdbm7cxR3uLY1cf9/Jad/XlL6ew0oZeBCJ", "q": "moNYeDOQ0scPNvMZXydaC4o93m9T+TQnsLYZAdn8c4D3x0Rly/c207BGZjxx/w=="}, {"f": "Emil Rathenau starb 1915. Wo liegt sein Grab?", "o": ["Jüdischer Friedhof Weißensee", "Waldfriedhof Oberschöneweide", "Invalidenfriedhof", "Dorotheenstädtischer Friedhof"], "h": 294909735, "w": "cc3XEasoLLTW5UCaA9Hh5v1IBn3aoJoB+ZkDnDt11g6Tjo0LWkwbgA7czzbiwF2yqvMzHskIlEEPa9BtUkFHZC22URrz/5wzA0KcO+5Cgjt0IccK5aIMDOah+NeTKW8F+ZRjC8GW65fRjKJ5C45Ktqf33jhkx/KVCAXHaqAN7AheIsXkCl8yuryU", "q": "dMGZMLw5KrTf/O5fDd7l4f1rFmmWrZFA+YkQkT1g0KRSnpEBB0wVpyyD5jDjd5+9qeE6V/4ZzQcLJ5I="}, {"f": "Seit wann gehört Oberschöneweide überhaupt zu Berlin?", "o": ["Seit 1898", "Seit 1920", "Seit 1945", "Seit 1990"], "h": 3131166161, "w": "Gws6dge+loz4pGhwFzwm7f0c1SitOYB+zdEbCli3nQMog7F0gvQ13IA5vUw6BTIIhhqPUgV3uYcxfEZ0tdlpZ5whY0VUO0P36d/QwIFpR9vPJhxbngCsQAeR+L2gDQ==", "q": "Dxw8wbj3sYSq+S8+dRA38foN3SitOYB+2tE3Jmu6owMs14Jni1LG0ZEoukY2Sy4="}, {"f": "Der Kaisersteg verbindet Ober- und Niederschöneweide. Wann wurde der heutige Steg freigegeben?", "o": ["1988", "1998", "2007", "2015"], "h": 2446651561, "w": "vYoLKHvvF+etcOK5hHnI8WN5nfvpirkm2/zJcEm/5CoXIen9MVpDXDW6dodEX7jGXKPKswz3T7yQ9GhDwvNOaGg/1YjegJXDfOqCnSpSB3vN8TZOssxBeS5hag4RR0M8vtSLdXPWuBPnXruD1nh21nhkBXEWX+ficL25UQ==", "q": "r5NZby21QsapZbr8q3rY9CY5xri6xe0H0OyFdE+4sARWA/vxMExFSib/OZUHG+6C"}, {"f": "Wie heißt die Führung des Industriesalons, die als Publikumsliebling gilt?", "o": ["Elektropolis", "Spreeufer", "Kabelsalat", "Unter Strom"], "h": 417802573, "w": "5tKk/cayEyVDbHU7F4ZkEd622RS/we9Yn1r1F7VoqnVHMJ4UmIUAG3QbI4IG1nqWMbA8mImQIvYyj73q0NNFnyVSg4jEtg==", "q": "0N2p+deuGSJJaXgtS4tCEc/s1hC/lcEfnkWSVpd9vSFCOoEVhdYQFw=="}, {"f": "In welcher Straße sitzt der Industriesalon?", "o": ["Wilhelminenhofstraße", "Reinbeckstraße", "Ostendstraße", "Rathenaustraße"], "h": 732075510, "w": "sg4X8I2f8AtMv0dLtfcopfQUFWVn+lhsyJi7COu/HzzXFhcHpi1XcqISRM5EKTjPTkg7uIvszpyQzvLntw==", "q": "qQUa65yO4QlauFRGGQZt1qZM+PNN9kop85m3Ruz0XAGR"}, {"f": "Wie viele Partnerbetriebe hat die Schöneweider KiezKarte heute?", "o": ["Zwölf", "Sechzehn", "Zwanzig", "Dreißig"], "h": 3052188052, "w": "ReOjAx0XXEm3Zv5EKAGBNfr4VW8JrjZLuKzCRgw9tcjQCO40nlWS6xr+DxGSWLruE9EWQgA2UOsN7sgsiOJdSAFFxtSKGv0nbhOJEdQ6+WJm2hR3jA==", "q": "bPeqAgIQXhDyWvRFekmZfOjnTGoetHMIuaGcSH8NvcOUSbR0xQHPqU3ucU4="}, {"f": "Was kostet die KiezKarte für den Rest des Jahres 2026?", "o": ["15 Euro", "25 Euro", "49 Euro", "Nichts, sie ist geschenkt"], "h": 624446900, "w": "F3XC2XXZgK3+PTpNMpUfXuadAkLyXBgPa7l+dV3Xa9eCzx5JoIw4Hhj8zgivRv9MSDgCOBansxVPZjaUTEOJLyFin2Fhag==", "q": "ViOK82XFivroID9cNJhADq/HGkbpXF1FarE="}, {"f": "Welcher Partner gibt den höchsten Rabatt auf der Karte?", "o": ["Die Buchhandlung WERK 116", "Die Würfelgasse", "Jennifer Löwe, Lomi Lomi Massagen", "Der Industriesalon"], "h": 1388347259, "w": "zHGOv+gexdXIUGzx5zbkq+lFoapEniuzReA3sIpTP0bI0fRLFWBsWxFBRaKM5Kcnyjdcs7tsgX3jBRdwwxg7czjmEckarUH8xL3Qt4ie8ICWeHjc0wlYifzv28PhMpde6MTgo2L/", "q": "5WWHvvcZx4L9S2fu8HX74u1KrOtXhiL4Ach646lTKlfImqZlv697Vg=="}], BUCH = ["A","B","C","D"], PREIS = "eine KiezKarte 2027", SCHLUSS = "22:00";
+
+const SALZ_C = "kiezkarte-code-2026", SALZ_L = "kiezkarte-loesung-2026";
+const roh = s => new TextEncoder().encode(s);
+function streu(s){ let h = 2166136261; for (const b of roh(s)){ h ^= b; h = Math.imul(h,16777619) >>> 0; } return h >>> 0; }
+function strom(saat,n){ let s = saat >>> 0; const a = new Uint8Array(n);
+  for (let i=0;i<n;i++){ s = (Math.imul(s,1664525) + 1013904223) >>> 0; a[i] = (s >>> 24) & 0xFF; } return a; }
+function oeffne(b64,saat){ const bin = atob(b64), a = new Uint8Array(bin.length);
+  for (let i=0;i<bin.length;i++) a[i] = bin.charCodeAt(i);
+  const k = strom(saat,a.length); for (let i=0;i<a.length;i++) a[i] ^= k[i];
+  return new TextDecoder().decode(a); }
+/* Namen auf das Wesentliche bringen, damit Gross- und Kleinschreibung,
+   Umlaute und Leerzeichen am Tresen keine Rolle spielen. */
+function knapp(n){ return (n||"").toLowerCase()
+  .replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/ß/g,"ss")
+  .replace(/[^a-z0-9]/g,""); }
+const Z = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const b36 = (n,st) => { let s = ""; n = Math.max(0,Math.floor(n));
+  for (let i=0;i<st;i++){ s = Z[n % 36] + s; n = Math.floor(n/36); } return s; };
+const z36 = s => [...s].reduce((a,c) => a*36 + Z.indexOf(c), 0);
+/* Code: 1 Zeichen Punkte, 2 Zeichen Dauer in 5-Sekunden-Schritten,
+   2 Zeichen Uhrzeit in Minuten ab 15:00, 2 Zeichen Pruefung. */
+function codeBauen(name, punkte, sekunden, endeMin){
+  const kern = b36(punkte,1) + b36(Math.min(1295,Math.round(sekunden/5)),2)
+             + b36(Math.min(1295,Math.max(0,endeMin-900)),2);
+  return kern + b36(streu(SALZ_C + knapp(name) + "|" + kern) % 1296, 2);
+}
+function codeLesen(name, code){
+  const c = (code||"").toUpperCase().replace(/[^0-9A-Z]/g,"");
+  if (c.length !== 7) return null;
+  const kern = c.slice(0,5);
+  if (b36(streu(SALZ_C + knapp(name) + "|" + kern) % 1296, 2) !== c.slice(5)) return null;
+  const m = 900 + z36(c.slice(3,5));
+  return { punkte: z36(c[0]), sekunden: z36(c.slice(1,3)) * 5,
+           ende: String(Math.floor(m/60)).padStart(2,"0") + ":" + String(m%60).padStart(2,"0") };
+}
+const mmss = s => Math.floor(s/60) + ":" + String(Math.round(s%60)).padStart(2,"0");
+
+const e = id => document.getElementById(id);
+const SPEICHER = "kiezquiz-2026-12-05";
+let i = 0, punkte = 0, name = "", start = 0, beantwortet = false, uebung = false, ticker = null;
+
+/* Die richtige Antwort steht nirgends als Zahl, sie wird gesucht. */
+const loesung = q => q.o.findIndex(o => streu(SALZ_L + o) === q.h);
+
+function gespielt(){ try { return JSON.parse(localStorage.getItem(SPEICHER) || "null"); } catch (x) { return null; } }
+function merken(d){ try { localStorage.setItem(SPEICHER, JSON.stringify(d)); } catch (x) {} }
+
+function anfang(){
+  clearInterval(ticker);
+  const alt = gespielt();
+  e('fort').style.width = '0%';
+  if (alt && !uebung) {
+    e('feld').innerHTML = '<div class="mitte">'+
+      '<div style="font-size:15px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#FFD98A">Du hast schon gespielt</div>'+
+      '<div style="font-size:60px;font-weight:800;margin:14px 0">'+alt.punkte+' / '+F.length+'</div>'+
+      (alt.code ? '<div class="klein">Dein Code:</div><div class="code">'+alt.code+'</div>' : '')+
+      '<div class="klein" style="margin-top:14px">Es zählt die erste Runde. Noch einmal spielen geht,<br>aber als Übungsrunde ohne Code.</div>'+
+      '<button class="knopf leise" onclick="uebung=true;los()">Übungsrunde</button></div>';
+    return;
+  }
+  e('feld').innerHTML = '<div class="mitte">'+
+    '<div class="gross" style="font-size:36px">Das KiezQuiz</div>'+
+    '<div style="margin-top:14px;font-size:18px;font-weight:700;color:#FFD98A">'+F.length+' Fragen rund um Schöneweide</div>'+
+    (uebung ? '<div class="klein" style="margin-top:22px">Übungsrunde. Zählt nicht für den Preis.</div>'
+            : '<div style="margin-top:26px;font-size:17px;line-height:1.5">Wer <b>alle '+F.length+' richtig</b> hat,<br>gewinnt '+PREIS+'.</div>'+
+              '<div class="klein" style="margin-top:12px">Die Zeit läuft mit. Bei Gleichstand entscheidet sie.<br>Teilnahme bis '+SCHLUSS+'.</div>')+
+    '<input id="nam" placeholder="Dein Name" autocomplete="name" maxlength="28">'+
+    '<div class="klein" style="margin-top:10px;text-align:left">Der Name bleibt auf deinem Handy. Er wird nirgendwo hingeschickt, er steckt nur im Code, damit am Tresen niemand fremde Punkte abholt.</div>'+
+    '<button class="knopf" onclick="los()">Los geht\'s</button></div>';
+  const feld = e('nam');
+  if (feld) feld.addEventListener('keydown', ev => { if (ev.key === 'Enter') los(); });
+}
+
+function los(){
+  const feld = e('nam');
+  if (feld) {
+    name = feld.value.trim();
+    if (knapp(name).length < 2) { feld.focus(); feld.style.borderColor = '#D72E1F'; return; }
+  }
+  if (!name) name = "Gast";
+  i = 0; punkte = 0; start = Date.now();
+  male();
+}
+
+function male(){
+  const feld = e('feld');
+  e('fort').style.width = (i/F.length*100)+'%';
+  if (i >= F.length) return schluss();
+  const q = F[i];
+  feld.innerHTML = '<div class="nr"><span>Frage '+(i+1)+' von '+F.length+'</span><span class="uhr" id="uhr">0:00</span></div>'+
+    '<h1>'+q.f+'</h1>'+
+    '<div id="opts">'+ q.o.map((o,k) => '<div class="o" data-k="'+k+'"><b>'+BUCH[k]+'</b><span>'+o+'</span></div>').join('') +'</div>'+
+    '<div id="nach"></div>';
+  beantwortet = false;
+  [...document.querySelectorAll('#opts .o')].forEach(el =>
+    el.addEventListener('click', () => waehle(parseInt(el.dataset.k))));
+  clearInterval(ticker);
+  ticker = setInterval(() => { const u = e('uhr'); if (u) u.textContent = mmss((Date.now()-start)/1000); }, 500);
+}
+
+function waehle(k){
+  if (beantwortet) return;
+  beantwortet = true;
+  const q = F[i], r = loesung(q);
+  if (k === r) punkte++;
+  [...document.querySelectorAll('#opts .o')].forEach((el,n) => {
+    if (n === r) el.classList.add('richtig');
+    else if (n === k) el.classList.add('falsch');
+    else el.classList.add('aus');
+  });
+  e('nach').innerHTML = '<div class="warum">'+oeffne(q.w,q.h)+'</div>'+
+    '<div class="quelle">Quelle: '+oeffne(q.q,q.h)+'</div>'+
+    '<button class="knopf" onclick="naechste()">'+(i+1 < F.length ? 'Nächste Frage' : 'Ergebnis')+'</button>';
+  e('nach').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function naechste(){ i++; male(); window.scrollTo({top:0,behavior:'smooth'}); }
+
+function schluss(){
+  clearInterval(ticker);
+  const sek = (Date.now()-start)/1000, jetzt = new Date();
+  const endeMin = jetzt.getHours()*60 + jetzt.getMinutes();
+  const voll = punkte === F.length;
+  const code = (voll && !uebung) ? codeBauen(name, punkte, sek, endeMin) : "";
+  if (!uebung && !gespielt()) merken({name, punkte, sekunden: Math.round(sek), code});
+  const lob = voll ? 'Alles richtig.'
+    : punkte >= F.length*0.7 ? 'Stark. Du kennst deinen Kiez.'
+    : punkte >= F.length*0.4 ? 'Solide. Da geht noch was.'
+    : 'Luft nach oben. Komm öfter vorbei.';
+  e('fort').style.width = '100%';
+  e('feld').innerHTML = '<div class="mitte">'+
+    '<div style="font-size:15px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#FFD98A">'+
+      (uebung ? 'Übungsrunde' : name)+'</div>'+
+    '<div style="font-size:72px;font-weight:800;margin:10px 0 2px">'+punkte+' / '+F.length+'</div>'+
+    '<div class="klein">in '+mmss(sek)+'</div>'+
+    '<div style="font-size:22px;font-weight:800;margin-top:16px">'+lob+'</div>'+
+    (code
+      ? '<div style="margin-top:24px;font-size:17px;line-height:1.5">Du hast gewonnen: '+PREIS+'.<br>Zeig diesen Code am Tresen.</div>'+
+        '<div class="code">'+code.slice(0,3)+'-'+code.slice(3)+'</div>'+
+        '<div class="klein">Gilt mit dem Namen <b>'+name+'</b>.<br>Bildschirmfoto machen, dann geht er nicht verloren.</div>'
+      : (voll ? '<div style="margin-top:22px;font-size:17px">Übungsrunde, also kein Code. Es zählt die erste Runde.</div>'
+              : '<div style="margin-top:22px;font-size:17px;line-height:1.5">Für den Preis braucht es alle '+F.length+'.<br>Die Karte gibt es trotzdem: 25 € bis zum 31. Dezember.</div>'))+
+    '<a href="https://schoeneweider-kiezkarte.de" style="display:inline-block;margin-top:22px;color:#FFD98A;font-weight:800;font-size:16px">schoeneweider-kiezkarte.de</a>'+
+    '<button class="knopf leise" onclick="uebung=true;anfang()">Noch eine Runde</button></div>';
+}
+anfang();
+</script></body></html>
