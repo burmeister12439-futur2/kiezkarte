@@ -431,6 +431,26 @@
   @media (prefers-reduced-motion: reduce) {
     .newdot, .newdot::before, .newdot::after { animation: none; }
   }
+
+  /* Aufruf Kiezfonds */
+  .aufrufband { display:block; background: var(--ink-box); color:#fff; text-decoration:none; }
+  .aufrufband-inner { max-width: var(--maxw); margin:0 auto; padding:10px 24px;
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+    gap:8px 14px; font-size:14.5px; line-height:1.4; text-align:center; }
+  .ab-marke { background: var(--gold); color:#2D2A26; font-size:11px; font-weight:800;
+    letter-spacing:.14em; text-transform:uppercase; padding:4px 10px; border-radius:999px; white-space:nowrap; }
+  .ab-btn { font-weight:800; text-decoration:underline; white-space:nowrap; }
+  .aufrufbox { background:#fff; border:1px solid var(--rule); border-radius:14px;
+    padding:26px 28px; margin-top:26px; display:grid; gap:14px; }
+  .aufrufbox .frist { display:inline-block; background:var(--red); color:#fff; font-weight:800;
+    font-size:14px; padding:7px 14px; border-radius:999px; justify-self:start; }
+  .aufrufbox h3 { font-size:clamp(22px,3.4vw,30px); letter-spacing:-.02em; }
+  .aufrufbox .btn-kf { display:inline-block; justify-self:start; background:var(--red); color:#fff;
+    text-decoration:none; font-weight:800; padding:13px 22px; border-radius:999px; }
+  .aufrufbox .btn-kf:hover { background:var(--red-deep); }
+  .aufrufbox h3 .red { color: var(--red); }
+  .xmas-box p a { color:#fff; text-decoration:underline; font-weight:800; white-space:nowrap; }
+  .xmas-box p a:hover { color:#FFDFA0; }
 </style>
 </head>
 <body>
@@ -443,6 +463,15 @@
     <span class="pb-marke">Neuer Preis</span>
     <span class="pb-text">Fürs Restjahr nur noch <span class="pb-paar"><b>25&nbsp;€</b> <span class="altpreis">49&nbsp;€</span></span>, gültig bis 31.12.2026.</span>
     <span class="pb-btn">Karte sichern →</span>
+  </span>
+</a>
+
+<!-- ANKÜNDIGUNG: Aufruf Kiezfonds -->
+<a class="aufrufband" href="kiezfonds.html">
+  <span class="aufrufband-inner">
+    <span class="ab-marke">Aufruf</span>
+    <span>Der Kiezfonds vergibt mindestens <b>1.347,50&nbsp;€</b> an Kulturprojekte im Kiez. Bewerbungsschluss <b>3.&nbsp;Dezember</b>.</span>
+    <span class="ab-btn">Jetzt bewerben →</span>
   </span>
 </a>
 
@@ -563,7 +592,9 @@
       <p>
         Für alle KiezKarten-Fans: Am <b>5. Dezember ab 19 Uhr</b> feiern wir gemeinsam im
         <b>Industriesalon</b> — mit Glühwein, Musik, einer <b>Versteigerung</b> und
-        KiezKultur-Überraschungen als Dankeschön fürs Mitmachen. Save the date!
+        KiezKultur-Überraschungen als Dankeschön fürs Mitmachen. An diesem Abend wird auch
+        <b>öffentlich entschieden, welche Projekte der Kiezfonds fördert</b>.
+        <a class="kk-link" href="kiezfonds.html">Zum Aufruf →</a>
       </p>
     </div>
   </section>
@@ -670,8 +701,9 @@
     <div class="eyebrow">Was aus deinem Beitrag wird</div>
     <h2>Konkret: <span class="red">Was kommt im Kiezfonds an?</span></h2>
     <p class="lede">
-      Der wesentliche Teil jeder verkauften KiezKarte fließt in den Kiezfonds Schöneweide.
-      So könnte es in der Pilotphase 2026 aussehen.
+      2026 ist ein Testlauf. Deshalb nennen wir keine feste Quote: Was nach den Kosten
+      der Karte übrig bleibt, geht in den Kiezfonds Schöneweide, und wir legen offen,
+      wie viel das ist. So könnte ein volles Jahr aussehen.
     </p>
     <div class="geldbox-wrap">
       <div class="geldbox-row">
@@ -688,6 +720,18 @@
         Pilotphase 2026, je 25 € pro Karte. Genug für eine Lange Nacht der Wilhelminenhofstraße
         oder ein Freiluftkino am Spreeufer — finanziert aus dem Kiez für den Kiez.
       </div>
+    </div>
+
+    <div class="aufrufbox">
+      <span class="frist">Bewerbungsschluss: 3. Dezember 2026</span>
+      <h3>Der Kiezfonds vergibt <span class="red">mindestens 1.347,50 Euro.</span></h3>
+      <p>
+        An ein bis drei kulturelle Projekte in Nieder- und Oberschöneweide. Vergeben wird, was am
+        5. Dezember im Fonds liegt, es kann also noch mehr werden. Eine Seite Bewerbung genügt.
+        Entschieden wird öffentlich am <b>5. Dezember</b> im Industriesalon, von allen, die eine
+        KiezKarte haben.
+      </p>
+      <a class="btn-kf" href="kiezfonds.html">Zum Aufruf und zum Verfahren →</a>
     </div>
   </section>
 
@@ -755,11 +799,11 @@
       </div>
       <div class="faq-item">
         <h3>Was passiert mit meinem Geld?</h3>
-        <p>Der wesentliche Teil jeder Karte fließt in den <b>Kiezfonds Schöneweide</b>. In der Pilotphase wird erprobt, wie Koordination, Kommunikation und Organisation schlank bewältigt werden können. Die Trägerschaft liegt treuhänderisch beim Industriesalon Schöneweide e.V. (gemeinnützig). Ab 2028 soll der Kiezfonds unabhängig werden.</p>
+        <p>Aus dem Kartenpreis werden zuerst die Kosten der Karte gedeckt, also Druck, Flyer und Website. Was übrig bleibt, geht in den <b>Kiezfonds Schöneweide</b>. 2026 ist ein Testlauf: Wir nennen deshalb keine feste Quote, sondern legen offen, was tatsächlich hereingekommen und was ausgegeben worden ist. In der Pilotphase wird zugleich erprobt, wie Koordination, Kommunikation und Organisation schlank bewältigt werden können. Die Trägerschaft liegt beim Industriesalon Schöneweide e.V. (gemeinnützig). Ab 2028 soll der Kiezfonds unabhängig werden.</p>
       </div>
       <div class="faq-item">
         <h3>Wer entscheidet, welche Projekte gefördert werden?</h3>
-        <p>Am Ende des Jahres werden erstmals aus dem <b>Kiezfonds</b> Initiativen und Projekte gefördert. Die Auswahl folgt dem Vorbild der <b>Berliner Kiezkassen</b>: offen und transparent, in einer öffentlichen Veranstaltung.</p>
+        <p>Am 5. Dezember 2026 werden erstmals aus dem <b>Kiezfonds</b> Initiativen und Projekte gefördert. Die Auswahl folgt dem Vorbild der <b>Berliner Kiezkassen</b>: offen und transparent, in einer öffentlichen Veranstaltung. Es stimmen alle ab, die eine KiezKarte haben, und die Partnerbetriebe; den Beschluss fasst der Vorstand des Industriesalons noch am selben Abend. <a class="kk-link" href="kiezfonds.html">Aufruf, Kriterien und Fristen →</a></p>
       </div>
       <div class="faq-item">
         <h3>Ich habe ein Geschäft — kann ich mitmachen?</h3>
