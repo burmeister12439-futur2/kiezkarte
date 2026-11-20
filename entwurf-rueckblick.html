@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiezfonds Schöneweide — Entschieden am 5. Dezember 2026</title>
+<meta name="description" content="Rückblick auf den 5. Dezember 2026: Welche Projekte der Kiezfonds Schöneweide fördert, was eingenommen und ausgegeben wurde, und wie es 2027 weitergeht.">
+<meta property="og:title" content="Kiezfonds Schöneweide: entschieden">
+<meta property="og:description" content="Die geförderten Projekte, die offenen Zahlen und der Ausblick auf 2027.">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex, nofollow">
+<style>
+  *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --ink: #1A1A1A;
+    --ink-box: #2D2A26;
+    --ink-soft: #4A4A4A;
+    --ink-mute: #8A8A8A;
+    --rule: #E5DFD3;
+    --cream: #FAF7F2;
+    --cream-deep: #F2EDE2;
+    --red: #D72E1F;
+    --red-deep: #A8240F;
+    --teal: #137F7F;
+    --gold: #E9B340;
+    --maxw: 1080px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .holo {
+    height: 5px;
+    background: linear-gradient(90deg,
+      #5B3FA8 0%, #B72E94 22%, #D72E1F 44%,
+      #E9B340 64%, #137F7F 84%, #5B3FA8 100%);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* Top-Bar */
+  .topbar {
+    padding: 18px 0 14px;
+    border-bottom: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .topbar-logos { display: flex; align-items: center; gap: 18px; }
+  .topbar img.logo-is { height: 36px; width: auto; }
+  .topbar img.logo-werk { height: 24px; width: auto; }
+  .topbar-nav { display: flex; align-items: center; gap: 18px; }
+  .topbar-link { font-size: 14px; font-weight: 700; color: var(--ink-soft); text-decoration: none; white-space: nowrap; }
+  .topbar-link:hover { color: var(--red); }
+  .topbar-cta {
+    display: inline-block; padding: 9px 18px; background: var(--red); color: #fff;
+    text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 700; transition: background 0.15s;
+  }
+  .topbar-cta:hover { background: var(--red-deep); }
+  @media (max-width: 560px) { .topbar-link { display: none; } }
+
+  .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 0.22em; color: var(--red); font-weight: 800; }
+
+  /* HERO */
+  .hero { padding: 56px 0 40px; position: relative; }
+  .hero .eyebrow { margin-bottom: 18px; }
+  .hero h1 {
+    font-size: clamp(34px, 7.5vw, 72px); line-height: 0.99; font-weight: 900;
+    letter-spacing: -0.025em; margin-bottom: 22px;
+  }
+  .hero h1 .red { color: var(--red); }
+  .hero .sub {
+    font-size: clamp(16px, 2.4vw, 21px); color: var(--ink-soft);
+    max-width: 720px; margin-bottom: 30px; line-height: 1.5;
+  }
+  .hero .sub b { color: var(--ink); font-weight: 700; }
+  .hero-cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-bottom: 8px; }
+  .btn-primary {
+    display: inline-block; padding: 14px 28px; background: var(--red); color: #fff;
+    text-decoration: none; border-radius: 8px; font-size: 16px; font-weight: 800;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--red-deep); transform: translateY(-1px); }
+  .btn-ghost {
+    display: inline-block; padding: 13px 22px; background: transparent; color: var(--ink);
+    text-decoration: none; border: 1.5px solid var(--rule); border-radius: 8px; font-size: 15px; font-weight: 700;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .btn-ghost:hover { border-color: var(--red); color: var(--red); }
+  .hero-card-wrap { display: flex; justify-content: center; margin-top: 34px; }
+  .hero-card { width: 100%; max-width: 680px; border-radius: 14px; filter: drop-shadow(0 16px 40px rgba(0,0,0,0.18)); }
+  .hero-meta {
+    margin-top: 26px; text-align: center; font-size: 13px; color: var(--ink-mute);
+    letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .hero-meta b { color: var(--red); font-weight: 800; }
+
+  /* Kauf-Standort-Links */
+  .kauflink { color: var(--teal); font-weight: 700; text-decoration: none; }
+  .kauflink:hover { text-decoration: underline; }
+  section.section.cta-section .kauflink { color: #FFC7BE; text-decoration: underline; }
+  .cta-newsletter { margin-top: 20px; font-size: 14px; color: rgba(255,255,255,0.82); line-height: 1.55; }
+
+  .hero-badge { position: absolute; top: 0; right: 0; width: 92px; height: 92px; }
+  @media (min-width: 720px) { .hero-badge { width: 116px; height: 116px; } }
+  .hero-badge img { width: 100%; height: 100%; }
+
+  /* Sections */
+  section.section { padding: 54px 0; border-top: 1px solid var(--rule); }
+  section.section h2 {
+    font-size: clamp(27px, 5vw, 42px); line-height: 1.02; font-weight: 900;
+    letter-spacing: -0.02em; margin-bottom: 16px;
+  }
+  section.section h2 .red { color: var(--red); }
+  section.section .lede {
+    font-size: clamp(15px, 2vw, 18px); color: var(--ink-soft); max-width: 720px; margin-bottom: 34px;
+  }
+  section.section .lede b { color: var(--ink); font-weight: 700; }
+  section.section .eyebrow { margin-bottom: 14px; }
+
+  /* Vorteile — 3 Karten */
+  .vorteile { display: grid; grid-template-columns: 1fr; gap: 18px; }
+  @media (min-width: 760px) { .vorteile { grid-template-columns: repeat(3, 1fr); } }
+  .vorteil {
+    background: #fff; border: 1px solid var(--rule); border-top: 4px solid var(--red);
+    border-radius: 0 0 12px 12px; padding: 26px 24px 28px;
+  }
+  .vorteil.v-teal { border-top-color: var(--teal); }
+  .vorteil.v-gold { border-top-color: var(--gold); }
+  .vorteil .vk { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.16em; color: var(--red); margin-bottom: 10px; }
+  .vorteil.v-teal .vk { color: var(--teal); }
+  .vorteil.v-gold .vk { color: #B0851F; }
+  .vorteil h3 { font-size: 19px; font-weight: 800; line-height: 1.2; margin-bottom: 8px; }
+  .vorteil p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.55; }
+
+  /* Info-/Newsletter-Box */
+  .info-box { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 26px 30px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; }
+  .info-box .info-text h3 { font-size: clamp(19px, 2.6vw, 24px); font-weight: 900; line-height: 1.2; margin-bottom: 6px; }
+  .info-box .info-text p { font-size: 15px; color: var(--ink-soft); line-height: 1.55; max-width: 560px; }
+
+  /* Steps */
+  .steps-box { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 28px 32px; margin-top: 4px; }
+  .steps-box .stitle { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.22em; color: var(--ink-mute); margin-bottom: 22px; }
+  .step-row { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 18px; }
+  .step-row:last-child { margin-bottom: 0; }
+  .step-row .dot { width: 34px; height: 34px; border-radius: 50%; background: var(--red); color: #fff; font-weight: 800; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-row .stext { flex: 1; padding-top: 4px; }
+  .step-row .stext h3 { font-size: 17px; font-weight: 800; line-height: 1.25; margin-bottom: 4px; }
+  .step-row .stext p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.5; }
+
+  /* Manifest */
+  .manifest p { font-size: clamp(16px, 2vw, 18.5px); color: var(--ink-soft); line-height: 1.62; max-width: 760px; margin-bottom: 18px; }
+  .manifest p b { color: var(--ink); font-weight: 700; }
+  .leitlinie {
+    background: var(--cream-deep); color: var(--ink); border: 1px solid var(--rule); border-left: 4px solid var(--red);
+    border-radius: 0 14px 14px 0; padding: 30px 32px; margin-top: 10px;
+  }
+  .leitlinie .lk { font-size: 12px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+  .leitlinie p { font-size: clamp(17px, 2.4vw, 21px); line-height: 1.5; font-weight: 700; color: var(--ink); margin: 0; }
+
+  /* Kreislauf-Diagramm */
+  .kreis-wrap { background: #fff; border: 1px solid var(--rule); border-radius: 16px; padding: 24px; }
+  .kreis-wrap svg { width: 100%; height: auto; display: block; }
+
+  /* Partner-Sektion */
+  .partner-hint { font-size: 14px; color: var(--ink-mute); margin: 6px 0 26px; }
+  .partner-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  @media (min-width: 640px) { .partner-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 900px) { .partner-grid { grid-template-columns: repeat(4, 1fr); } }
+  .partner-card {
+    text-align: left; background: #fff; border: 1px solid var(--rule); border-radius: 12px;
+    padding: 18px 18px 16px; cursor: pointer; font: inherit; color: inherit;
+    display: flex; flex-direction: column; gap: 4px; transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+    position: relative; overflow: hidden;
+  }
+  .partner-card::before { content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background: var(--red); }
+  .partner-card:hover { border-color: var(--red); box-shadow: 0 8px 20px rgba(0,0,0,0.07); transform: translateY(-2px); }
+  .pc-name { font-size: 15.5px; font-weight: 800; line-height: 1.25; }
+  .pc-kind { font-size: 12.5px; color: var(--ink-mute); }
+  .pc-reveal { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.25s ease, opacity 0.2s ease, margin 0.25s ease; }
+  .partner-card.open .pc-reveal { max-height: 160px; opacity: 1; margin-top: 8px; }
+  .pc-rabatt { font-size: 14px; font-weight: 800; color: var(--red); }
+  .pc-rabatt.tbd { color: var(--ink-mute); font-weight: 700; font-style: italic; }
+  .pc-maps { display: inline-block; margin-top: 8px; font-size: 13px; font-weight: 700; color: var(--teal); text-decoration: none; }
+  .pc-maps:hover { text-decoration: underline; }
+  .pc-more { font-size: 11.5px; color: var(--ink-mute); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.12em; }
+  .partner-card.open .pc-more { color: var(--red); }
+
+  .partner-tools { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 22px 0 6px; }
+  .toolbtn { font: inherit; font-size: 13px; font-weight: 700; color: var(--ink-soft); background: #fff; border: 1px solid var(--rule); border-radius: 8px; padding: 8px 14px; cursor: pointer; }
+  .toolbtn:hover { border-color: var(--red); color: var(--red); }
+
+  .partner-alpha { margin-top: 8px; border-top: 1px solid var(--rule); padding-top: 20px; display: none; }
+  .partner-alpha.show { display: block; }
+  .partner-alpha h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-mute); margin-bottom: 14px; }
+  .alpha-list { list-style: none; column-count: 1; column-gap: 32px; }
+  @media (min-width: 640px) { .alpha-list { column-count: 2; } }
+  .alpha-list li { padding: 8px 0; border-bottom: 1px solid var(--rule); break-inside: avoid; display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+  .al-main { display: flex; flex-direction: column; gap: 2px; }
+  .alpha-list li .an { font-weight: 700; font-size: 14.5px; }
+  .alpha-list li .ar { font-size: 12.5px; color: var(--ink-soft); }
+  .alpha-list li .ar.tbd { color: var(--ink-mute); font-style: italic; }
+  .an-btn { font: inherit; font-weight: 700; font-size: 14.5px; background: none; border: none; padding: 0; text-align: left; cursor: pointer; color: var(--ink); }
+  .an-btn:hover { color: var(--red); text-decoration: underline; }
+
+  /* Partner-Kachel: vollflächige Partnerfarbe */
+  .partner-card { gap: 6px; min-height: 128px; background: var(--pc, var(--red)); border-color: transparent; }
+  .partner-card::before { display: none; }
+  .partner-card:hover { border-color: transparent; box-shadow: 0 12px 28px rgba(0,0,0,0.22); transform: translateY(-3px); }
+  .partner-card .pc-name { color: #fff; }
+  .partner-card .pc-kind { color: rgba(255,255,255,0.82); }
+  .partner-card .pc-more { color: rgba(255,255,255,0.92); margin-top: auto; padding-top: 10px; font-weight: 800; }
+  .pc-logo { display: flex; align-items: center; justify-content: flex-start; height: 50px; margin-bottom: 4px; }
+  .pc-logo img { max-height: 50px; max-width: 160px; object-fit: contain; display: block; }
+  .partner-card-more { cursor: default; background: var(--cream-deep); border: 1px dashed var(--rule); justify-content: center; }
+  .partner-card-more::before { display: none; }
+  .partner-card-more:hover { transform: none; box-shadow: none; border-color: var(--rule); }
+  .partner-card-more .pc-name { color: var(--ink-soft); }
+  .partner-card-more .pc-kind { color: var(--ink-mute); }
+
+  /* Partner-Detail-Modal */
+  .pmodal { position: fixed; inset: 0; z-index: 100; display: none; }
+  .pmodal.open { display: block; }
+  .pmodal-backdrop { position: absolute; inset: 0; background: rgba(20,18,16,0.55); }
+  .pmodal-card { --pm: var(--red); position: relative; max-width: 440px; width: calc(100% - 32px); margin: 7vh auto 0; background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.32); animation: pmIn .18s ease; }
+  @keyframes pmIn { from { transform: translateY(12px); opacity: 0; } to { transform: none; opacity: 1; } }
+  .pmodal-close { position: absolute; top: 10px; right: 12px; z-index: 2; width: 34px; height: 34px; border: none; border-radius: 50%; background: rgba(255,255,255,0.88); font-size: 22px; line-height: 1; cursor: pointer; color: #2D2A26; }
+  .pmodal-close:hover { background: #fff; }
+  .pmodal-head { background: var(--pm); padding: 22px; display: flex; align-items: center; justify-content: center; min-height: 160px; }
+  .pmodal-media { display: flex; align-items: center; justify-content: center; width: 100%; }
+  .pmodal-imgbox { background: #fff; border-radius: 12px; padding: 16px 22px; display: flex; align-items: center; justify-content: center; width: auto; max-width: 208px; min-height: 78px; }
+  .pmodal-imgbox img { max-width: 100%; max-height: 82px; object-fit: contain; display: block; }
+  .pmodal-photo img { max-width: 100%; max-height: 200px; border-radius: 10px; display: block; }
+  .pmodal-mono { width: 96px; height: 96px; border-radius: 20px; background: rgba(255,255,255,0.18); border: 2px solid rgba(255,255,255,0.65); color: #fff; font-weight: 900; font-size: 38px; display: flex; align-items: center; justify-content: center; }
+  .pmodal-body { padding: 22px 24px 26px; }
+  .pmodal-logo { display: flex; justify-content: flex-end; margin-bottom: 12px; }
+  .pmodal-logo img { max-height: 58px; max-width: 210px; object-fit: contain; display: block; }
+  .pmodal-kind { font-size: 12px; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 800; color: var(--pm); margin-bottom: 6px; }
+  .pmodal-name { font-size: 22px; font-weight: 900; line-height: 1.15; margin-bottom: 14px; letter-spacing: -0.01em; }
+  .pmodal-rabatt { background: var(--cream-deep); border-radius: 10px; padding: 14px 16px; font-size: 16px; font-weight: 800; color: var(--ink); margin-bottom: 18px; }
+  .pmodal-rabatt small { display: block; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); font-weight: 800; margin-bottom: 4px; }
+  .pmodal-rabatt.tbd { font-weight: 600; font-style: italic; color: var(--ink-mute); }
+  .pmodal-text { font-size: 13.5px; line-height: 1.6; color: var(--ink-soft); margin-bottom: 16px; }
+  .pmodal-text a { color: var(--pm); font-weight: 700; text-decoration: none; word-break: break-word; }
+  .pmodal-text a:hover { text-decoration: underline; }
+  .pmodal-links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .pmodal-links a { flex: 1 1 auto; text-align: center; padding: 11px 14px; border-radius: 9px; font-size: 14px; font-weight: 700; text-decoration: none; }
+  .pmlink-web { background: var(--pm); color: #fff; }
+  .pmlink-web:hover { filter: brightness(0.94); }
+  .pmlink-map { background: #fff; color: var(--ink); border: 1.5px solid var(--rule); }
+  .pmlink-map:hover { border-color: var(--pm); color: var(--pm); }
+  body.pm-open { overflow: hidden; }
+  .alpha-list li a { font-size: 12.5px; font-weight: 700; color: var(--teal); text-decoration: none; white-space: nowrap; }
+  .alpha-list li a:hover { text-decoration: underline; }
+
+  .fehlt-box { background: var(--cream-deep); border-radius: 12px; padding: 20px 24px; margin-top: 26px; font-size: 14.5px; color: var(--ink-soft); }
+  .fehlt-box b { color: var(--ink); }
+
+  /* Support-Band */
+  .support-band {
+    background: #fff; border: 1px solid var(--rule); border-radius: 14px;
+    padding: 22px 26px; margin-top: 4px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+    font-size: 15px; color: var(--ink-soft);
+  }
+  .support-band .sb-k { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.16em; color: var(--teal); }
+  .support-band b { color: var(--ink); font-weight: 700; }
+  .support-band a { color: var(--red); text-decoration: none; }
+  .support-band a:hover { text-decoration: underline; }
+
+  /* Vorankündigung Xmas-Party — prominent & festlich */
+  .xmas-box { position: relative; overflow: hidden; background: linear-gradient(135deg, #A8240F 0%, #D72E1F 52%, #C98A1E 150%); color: #fff; border-radius: 16px; padding: 42px 38px; box-shadow: 0 18px 44px rgba(168,36,15,0.30); }
+  .xmas-box::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 6px; background: linear-gradient(90deg,#5B3FA8 0%,#B72E94 22%,#D72E1F 44%,#E9B340 64%,#137F7F 84%,#5B3FA8 100%); }
+  .xmas-eyebrow { display: inline-block; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: #2D2A26; background: #FFD98A; padding: 5px 12px; border-radius: 20px; margin-bottom: 16px; }
+  .xmas-box h3 { font-size: clamp(24px, 4.4vw, 38px); font-weight: 900; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 12px; color: #fff; }
+  .xmas-box h3 .red { color: #FFDFA0; }
+  .xmas-box p { font-size: clamp(15.5px, 2vw, 17.5px); color: rgba(255,255,255,0.92); line-height: 1.6; max-width: 680px; }
+  .xmas-box p b { color: #fff; font-weight: 800; }
+
+  /* Geldbeispiel */
+  .geldbox-wrap { background: #fff; border: 1px solid var(--rule); border-left: 4px solid var(--red); border-radius: 0 14px 14px 0; padding: 28px 32px; margin-top: 4px; }
+  .geldbox-row { display: flex; flex-wrap: wrap; gap: 28px; }
+  .geldbox-item { flex: 1 1 240px; min-width: 0; }
+  .geldbox-item .num { font-size: 36px; font-weight: 900; line-height: 1; color: var(--red); letter-spacing: -0.02em; margin-bottom: 10px; white-space: nowrap; }
+  .geldbox-item .cap { font-size: 14.5px; color: var(--ink-soft); line-height: 1.5; }
+  .geldbox-item .cap b { color: var(--ink); font-weight: 700; }
+  .geldbox-hint { font-size: 13px; color: var(--ink-mute); margin-top: 22px; font-style: italic; line-height: 1.55; border-top: 1px solid var(--rule); padding-top: 16px; }
+
+  /* Zitat */
+  .zitat { background: var(--cream-deep); border-radius: 16px; padding: 32px; margin-top: 4px; }
+  .zitat blockquote { font-size: clamp(19px, 3vw, 26px); font-weight: 800; line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 14px; }
+  .zitat cite { font-style: normal; font-size: 14px; color: var(--ink-mute); }
+
+  /* CTA */
+  section.section.cta-section { background: linear-gradient(135deg, #A8240F 0%, #D72E1F 100%); color: #fff; border-top: none; padding: 54px 40px; border-radius: 16px; }
+  @media (max-width: 720px) { section.section.cta-section { padding: 40px 24px; } }
+  section.section.cta-section h2 { color: #fff; }
+  section.section.cta-section .lede { color: rgba(255,255,255,0.80); }
+  section.section.cta-section .lede b { color: #fff; }
+  section.section.cta-section .eyebrow { color: #FFD98A; }
+  .cta-box { background: #fff; color: var(--ink); border-radius: 16px; padding: 34px 32px; margin-top: 20px; display: flex; flex-direction: column; gap: 24px; }
+  @media (min-width: 720px) { .cta-box { flex-direction: row; align-items: center; } }
+  .cta-box-text { flex: 1; }
+  .cta-box-qr { width: 108px; height: 108px; background: #fff; padding: 6px; border-radius: 8px; flex-shrink: 0; border: 1px solid var(--rule); }
+  .cta-box-qr img { width: 100%; height: 100%; object-fit: contain; }
+  .cta-box h3 { font-size: clamp(20px, 3vw, 26px); font-weight: 800; line-height: 1.2; margin-bottom: 12px; }
+  .cta-box p { font-size: 15px; color: var(--ink-soft); line-height: 1.55; margin-bottom: 16px; }
+
+  /* FAQ */
+  .faq-list { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 4px; }
+  .faq-item { background: #fff; border: 1px solid var(--rule); border-left: 3px solid var(--red); border-radius: 0 12px 12px 0; padding: 22px 26px; }
+  .faq-item h3 { font-size: 17px; font-weight: 800; line-height: 1.25; margin-bottom: 8px; color: var(--ink); }
+  .faq-item p { font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); }
+  .faq-item p b { color: var(--ink); font-weight: 700; }
+  .faq-item p a { color: var(--red); font-weight: 700; text-decoration: none; }
+  .faq-item p a:hover { text-decoration: underline; }
+
+  /* Kontakt */
+  .contacts { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 4px; }
+  @media (min-width: 720px) { .contacts { grid-template-columns: 1fr 1fr; gap: 32px; } }
+  .contact { background: #fff; border: 1px solid var(--rule); border-radius: 12px; padding: 28px; }
+  .contact .role { font-size: 12px; text-transform: uppercase; letter-spacing: 0.22em; color: var(--ink-mute); font-weight: 700; margin-bottom: 8px; }
+  .contact h4 { font-size: 22px; font-weight: 800; line-height: 1.2; margin-bottom: 6px; }
+  .contact .org { font-size: 15px; color: var(--ink-soft); margin-bottom: 14px; }
+  .contact a { display: block; font-size: 14px; color: var(--ink); text-decoration: none; padding: 4px 0; }
+  .contact a:hover { color: var(--red); text-decoration: underline; }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--rule); padding: 40px 0 32px; margin-top: 24px; }
+  .footer-row { display: flex; flex-direction: column; gap: 24px; align-items: center; text-align: center; }
+  @media (min-width: 720px) { .footer-row { flex-direction: row; justify-content: space-between; text-align: left; } }
+  .footer-logos { display: flex; align-items: center; gap: 24px; }
+  .footer-logos img.logo-is { height: 44px; }
+  .footer-logos img.logo-werk { height: 28px; }
+  .footer-info { font-size: 12px; color: var(--ink-mute); letter-spacing: 0.02em; line-height: 1.6; }
+  .footer-info b { color: var(--ink-soft); font-weight: 700; }
+  .footer-slogan { color: var(--red); font-size: 16px; font-weight: 800; letter-spacing: -0.01em; }
+  .footer-legal { border-top: 1px solid var(--rule); margin-top: 28px; padding-top: 18px; text-align: center; font-size: 13px; color: var(--ink-mute); }
+  .footer-legal a { color: var(--ink-soft); text-decoration: none; margin: 0 12px; }
+  .footer-legal a:hover { color: var(--red); text-decoration: underline; }
+
+  /* --- Preisband und Preisanzeige --- */
+  .preisband {
+    display: block; background: var(--red); color: #fff; text-decoration: none;
+    position: sticky; top: 5px; z-index: 9;
+  }
+  .pb-paar { white-space: nowrap; }
+  .preisband-inner {
+    max-width: var(--maxw); margin: 0 auto; padding: 11px 24px;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+    gap: 9px 16px; font-size: 15px; line-height: 1.4; text-align: center;
+  }
+  .pb-marke {
+    background: #fff; color: var(--red); font-size: 11px; font-weight: 800;
+    letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px;
+    border-radius: 999px; white-space: nowrap;
+  }
+  .pb-text b { font-weight: 800; }
+  .pb-btn { color: #fff; font-weight: 800; text-decoration: underline; white-space: nowrap; }
+  .pb-btn:hover { text-decoration: none; }
+  .altpreis { text-decoration: line-through; opacity: 0.7; font-weight: 700; }
+  .hero-preis {
+    margin-top: 24px; display: flex; align-items: baseline; justify-content: center;
+    flex-wrap: wrap; gap: 4px 14px;
+  }
+  .hp-alt { font-size: 26px; font-weight: 800; color: var(--ink-mute); text-decoration: line-through; }
+  .hp-neu { font-size: 46px; font-weight: 800; color: var(--red); line-height: 1; letter-spacing: -0.02em; }
+  .hp-note {
+    flex-basis: 100%; text-align: center; margin-top: 8px;
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute);
+  }
+  @media (max-width: 640px) {
+    .hp-neu { font-size: 38px; }
+    .preisband-inner { font-size: 13px; padding: 9px 16px; gap: 0; }
+    .pb-marke, .pb-btn { display: none; }
+  }
+
+  /* --- Neuer Partner: pulsierender Punkt + Kachel-Label --- */
+  .partner-card { position: relative; }
+  .pc-neu {
+    position: absolute; top: 10px; right: 10px; z-index: 2;
+    background: #FFDD00; color: #1A1A1A;
+    font-size: 10px; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase;
+    padding: 4px 9px; border-radius: 999px; line-height: 1;
+  }
+  .pc-vk {
+    align-self: flex-start; margin-bottom: 9px;
+    background: #fff; color: var(--teal);
+    font-size: 10px; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase;
+    padding: 5px 10px; border-radius: 999px; line-height: 1;
+  }
+  .pmodal-vk {
+    background: var(--teal); color: #fff; border-radius: 10px;
+    padding: 12px 15px; font-size: 13.5px; font-weight: 700; line-height: 1.45;
+    margin-bottom: 16px;
+  }
+  .pmodal-vk b { font-weight: 800; }
+  .newdot {
+    position: fixed; right: 22px; bottom: 24px; z-index: 60;
+    width: 146px; height: 146px; border-radius: 50%; border: 0; padding: 0;
+    background: var(--red); color: #fff; cursor: pointer; font: inherit; text-align: center;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.28);
+    animation: nd-bob 2.8s ease-in-out infinite;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .newdot small {
+    font-size: 9px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+    opacity: 0.92; line-height: 1.25; max-width: 110px;
+  }
+  .newdot b { font-size: 14px; font-weight: 800; line-height: 1.18; max-width: 118px; }
+  .newdot::before, .newdot::after {
+    content: ""; position: absolute; inset: 0; border-radius: 50%;
+    border: 2px solid var(--red); animation: nd-pulse 2.4s ease-out infinite; pointer-events: none;
+  }
+  .newdot::after { animation-delay: 1.2s; }
+  .newdot:hover { transform: scale(1.06); }
+  .newdot.hide { opacity: 0; transform: scale(0.7); pointer-events: none; }
+  @keyframes nd-pulse { 0% { transform: scale(1); opacity: 0.65; } 100% { transform: scale(1.9); opacity: 0; } }
+  @keyframes nd-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+  @media (max-width: 640px) {
+    .newdot { width: 124px; height: 124px; right: 14px; bottom: 16px; }
+    .newdot b { font-size: 12px; max-width: 104px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .newdot, .newdot::before, .newdot::after { animation: none; }
+  }
+</style>
+
+<style>
+  /* Nur fuer die Kiezfonds-Seite */
+  .kf-hero { padding: 40px 0 8px; }
+  .kf-frist { display:inline-flex; align-items:baseline; gap:10px; background:var(--red); color:#fff;
+    padding:10px 16px; border-radius:999px; font-weight:800; font-size:15px; letter-spacing:.01em; margin-top:6px; }
+  .kf-summe { font-size: clamp(38px,7vw,64px); font-weight:800; letter-spacing:-.03em; line-height:1; color:var(--ink); }
+  .kf-summe small { display:block; font-size:15px; font-weight:600; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--ink-mute); margin-top:10px; }
+  .kf-box { background:#fff; border:1px solid var(--rule); border-radius:14px; padding:26px 28px; }
+  .kf-krit { list-style:none; display:grid; gap:12px; margin-top:14px; }
+  .kf-krit li { display:flex; gap:12px; align-items:flex-start; font-size:17px; font-weight:600; }
+  .kf-krit li::before { content:"→"; color:var(--red); font-weight:800; flex:0 0 auto; }
+  .kf-leiter { display:grid; gap:0; margin-top:10px; }
+  .kf-schritt { display:grid; grid-template-columns:150px 1fr; gap:18px; padding:16px 0;
+    border-top:1px solid var(--rule); align-items:baseline; }
+  .kf-schritt:first-child { border-top:0; }
+  .kf-wann { font-weight:800; font-size:15px; letter-spacing:.02em; color:var(--red); }
+  .kf-was b { display:block; font-size:18px; letter-spacing:-.01em; margin-bottom:3px; }
+  .kf-was span { color:var(--ink-soft); }
+  .kf-offen { background:#FFF4D6; border:1px dashed #C9A227; border-radius:10px;
+    padding:12px 14px; font-size:14px; color:#6B5200; margin:10px 0; }
+  .kf-zurueck { display:inline-block; margin-top:8px; font-weight:700; color:var(--red); text-decoration:none; }
+  .kf-zurueck:hover { text-decoration:underline; }
+  @media (max-width:640px){ .kf-schritt { grid-template-columns:1fr; gap:4px; } }
+</style>
+
+
+<style>
+  /* Rueckblick */
+  .platz { background:#FFF4D6; border:2px dashed #C9A227; border-radius:8px;
+    padding:6px 10px; color:#6B5200; font-weight:700; display:inline-block; }
+  .rb-projekt { background:#fff; border:1px solid var(--rule); border-radius:14px;
+    padding:24px 26px; margin-top:16px; }
+  .rb-projekt .betrag { font-family:inherit; font-size:34px; font-weight:800;
+    letter-spacing:-.03em; color:var(--red); line-height:1; }
+  .rb-projekt h3 { font-size:clamp(20px,3vw,27px); letter-spacing:-.02em; margin:8px 0 8px; }
+  .zahlen { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:14px; margin-top:16px; }
+  .zahl { background:#fff; border:1px solid var(--rule); border-radius:12px; padding:18px 20px; }
+  .zahl b { display:block; font-size:30px; font-weight:800; letter-spacing:-.03em; line-height:1.05; }
+  .zahl small { display:block; margin-top:8px; font-size:12px; font-weight:700;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--ink-mute); }
+  .zahl.heraus { background:var(--ink-box); border-color:var(--ink-box); color:#fff; }
+  .zahl.heraus small { color:#C9C3B8; }
+  .fotos { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:14px; margin-top:16px; }
+  .foto { aspect-ratio:3/2; border-radius:12px; overflow:hidden; background:#EFE9DD;
+    display:flex; align-items:center; justify-content:center; border:1px solid var(--rule); }
+  .foto img { width:100%; height:100%; object-fit:cover; display:block; }
+  .beleg { margin-top:14px; padding-top:10px; border-top:1px solid var(--rule); }
+  .beleg .kf-wann, .beleg .kf-was b { font-size:14px; }
+  .beleg .kf-was span { font-size:14px; }
+</style>
+
+</head>
+<body>
+<div style="background:#C9A227;color:#2D2A26;font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;
+font-size:14px;font-weight:700;text-align:center;padding:10px 20px;line-height:1.5">
+ENTWURF vom 20. November 2026 · Noch nicht veröffentlicht · Alles gelb Markierte wird nach dem 5. Dezember eingesetzt
+</div>
+
+<!--
+  RUECKBLICK KIEZFONDS, Entwurf vom 20.11.2026.
+  Geht am 6. oder 7. Dezember 2026 als kiezfonds.html live und ersetzt den Aufruf.
+
+  VORHER EINSETZEN, alles gelb markiert im Text:
+    1. Je gefoerdertes Projekt: Name, Betrag, zwei Saetze, wann man es im Kiez sieht
+    2. Die fuenf Zahlen: eingenommen, Kosten, im Fonds, ausgeschuettet, Rest
+    3. Zahl der Anwesenden und der Abstimmenden
+    4. Drei bis fuenf Fotos nach fest/fest-1.jpg bis fest-5.jpg
+    5. Termin des naechsten Aufrufs 2027
+  Danach im Text nach [[ suchen. Findet sich nichts mehr, ist die Seite fertig.
+-->
+
+<div class="holo"></div>
+
+<a class="preisband" href="#projekte">
+  <span class="preisband-inner">
+    <span class="pb-marke">Entschieden</span>
+    <span class="pb-text">Am 5. Dezember hat der Kiez entschieden, welche Projekte gefördert werden.</span>
+    <span class="pb-btn">Die Projekte →</span>
+  </span>
+</a>
+
+<div class="container">
+
+  <header class="topbar">
+    <div class="topbar-logos">
+      <a href="index.html"><img class="logo-is" src="industriesalon_logo.png" alt="Industriesalon Schöneweide"></a>
+      <img class="logo-werk" src="werk116_logo.png" alt="WERK 116">
+    </div>
+    <nav class="topbar-nav">
+      <a class="topbar-cta" href="index.html">Zur KiezKarte →</a>
+    </nav>
+  </header>
+
+  <section class="section kf-hero">
+    <div class="eyebrow">Mehrwert Schöneweide · Kiezfonds 2026</div>
+    <h1>Entschieden am <span class="red">5. Dezember 2026.</span></h1>
+    <p class="sub">
+      Die Schöneweider KiezKarte war 2026 ein Testlauf. Was nach den Kosten der Karte übrig
+      blieb, ist in den Kiezfonds gegangen und von dort zurück in den Kiez. Am Abend des
+      5. Dezember haben die Kartenbesitzerinnen und Kartenbesitzer und die Partnerbetriebe
+      im Industriesalon öffentlich entschieden, welche Projekte das Geld bekommen. Hier steht,
+      wer gefördert wird, was hereingekommen und was ausgegeben worden ist.
+    </p>
+  </section>
+
+  <section class="section" id="projekte">
+    <div class="eyebrow">Was gefördert wird</div>
+    <h2>Die Projekte, <span class="red">die der Kiez gewählt hat.</span></h2>
+
+    <div class="rb-projekt">
+      <div class="betrag">[[Betrag 1]] €</div>
+      <h3>[[Name des Projekts 1]]</h3>
+      <p>[[Zwei Sätze: was mit dem Geld passiert.]]</p>
+      <p style="margin-top:8px;color:var(--ink-soft)"><b>Zu sehen:</b> [[wann und wo man es im Kiez erleben kann]]</p>
+    </div>
+
+    <div class="rb-projekt">
+      <div class="betrag">[[Betrag 2]] €</div>
+      <h3>[[Name des Projekts 2]]</h3>
+      <p>[[Zwei Sätze: was mit dem Geld passiert.]]</p>
+      <p style="margin-top:8px;color:var(--ink-soft)"><b>Zu sehen:</b> [[wann und wo man es im Kiez erleben kann]]</p>
+    </div>
+
+    <div class="rb-projekt">
+      <div class="betrag">[[Betrag 3]] €</div>
+      <h3>[[Name des Projekts 3]]</h3>
+      <p>[[Zwei Sätze: was mit dem Geld passiert.]]</p>
+      <p style="margin-top:8px;color:var(--ink-soft)"><b>Zu sehen:</b> [[wann und wo man es im Kiez erleben kann]]</p>
+    </div>
+
+    <p style="margin-top:14px;color:var(--ink-soft)">
+      <span class="platz">Wenn es nur ein oder zwei Projekte sind: die übrigen Kästen löschen.</span>
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Offen gelegt</div>
+    <h2>Was hereinkam, <span class="red">was es kostete, was blieb.</span></h2>
+    <p class="sub">
+      Wir haben im Aufruf versprochen, keine feste Quote zu nennen, sondern die Zahlen.
+      Hier sind sie, Stand [[Datum]].
+    </p>
+    <div class="zahlen">
+      <div class="zahl"><b>[[… €]]</b><small>Einnahmen Kartenverkauf</small></div>
+      <div class="zahl"><b>[[… €]]</b><small>Kosten der Karte</small></div>
+      <div class="zahl"><b>[[… €]]</b><small>im Kiezfonds</small></div>
+      <div class="zahl heraus"><b>[[… €]]</b><small>ausgeschüttet</small></div>
+      <div class="zahl"><b>[[… €]]</b><small>bleibt im Fonds</small></div>
+    </div>
+    <p style="margin-top:14px;color:var(--ink-soft)">
+      Die Karte war bis zum 31. Dezember 2026 gültig. Was danach noch hereinkam, bleibt im
+      Fonds und wird 2027 vergeben.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="kf-box">
+      <div class="eyebrow">Wie entschieden wurde</div>
+      <h3>Öffentlich, im Saal, an einem Abend.</h3>
+      <p style="margin-top:12px">
+        Alle Bewerbungen wurden vorgestellt und gemeinsam beraten. Abgestimmt haben die
+        Besitzerinnen und Besitzer einer KiezKarte und die Partnerbetriebe.
+        <b>[[Zahl]] Menschen</b> waren an dem Abend da, <b>[[Zahl]]</b> haben abgestimmt.
+        Das Ergebnis der Abstimmung war die Empfehlung an den Vorstand des Industriesalons,
+        der den Beschluss noch am selben Abend gefasst und öffentlich bekannt gegeben hat.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Der Abend</div>
+    <h2>Die Benefit-Xmas-Party, <span class="red">5. Dezember 2026.</span></h2>
+    <div class="fotos">
+      <div class="foto"><span class="platz">[[Foto 1 → fest/fest-1.jpg]]</span></div>
+      <div class="foto"><span class="platz">[[Foto 2 → fest/fest-2.jpg]]</span></div>
+      <div class="foto"><span class="platz">[[Foto 3 → fest/fest-3.jpg]]</span></div>
+    </div>
+    <p style="margin-top:12px;color:var(--ink-mute);font-size:14px">
+      Fotos: [[Name]] · © [[Name]] 2026
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Was an dem Abend sonst noch war</div>
+    <h2>Das Programm <span class="red">vom 5. Dezember.</span></h2>
+    <p class="sub">
+      Der Abend war mehr als die Vergabe. Hier steht, was gelaufen ist, damit auch die
+      nachlesen können, die nicht dabei waren.
+    </p>
+    <div class="kf-leiter" style="margin-top:18px">
+
+      <div class="kf-schritt">
+        <div class="kf-wann">19.00 Uhr</div>
+        <div class="kf-was"><b>Ankommen</b><span>Musik, Glühwein, die Karten lagen bereit.</span></div>
+      </div>
+
+      <div class="kf-schritt">
+        <div class="kf-wann">19.20 Uhr</div>
+        <div class="kf-was"><b>Der Kiezfonds</b><span>Die Bewerbungen, die Beratung, die Abstimmung und die Bekanntgabe. <a class="kk-link" href="#projekte">Die Projekte →</a></span></div>
+      </div>
+
+      <div class="kf-schritt">
+        <div class="kf-wann">[[Uhrzeit]]</div>
+        <div class="kf-was"><b>Danke an alle Partner</b><span>Der Clip mit allen zwanzig Betrieben, danach das gemeinsame Foto.</span></div>
+      </div>
+
+      <div class="kf-schritt">
+        <div class="kf-wann">[[Uhrzeit]]</div>
+        <div class="kf-was"><b>Die 1. Art-Kiez-Auktion</b><span>[[Wie viele Werke, was kam zusammen, wohin ging der Erlös.]]</span></div>
+      </div>
+
+      <div class="kf-schritt">
+        <div class="kf-wann">[[Uhrzeit]]</div>
+        <div class="kf-was"><b>Das Schöneweider KiezQuiz</b><span>Fünfzehn Fragen über Schöneweide, zehn Minuten. [[Wie viele haben mitgemacht, wer hat gewonnen.]]</span></div>
+      </div>
+
+      <div class="kf-schritt">
+        <div class="kf-wann">[[Uhrzeit]]</div>
+        <div class="kf-was"><b>Musik</b><span>[[Wer gespielt hat.]]</span></div>
+      </div>
+
+      <div class="kf-schritt">
+        <div class="kf-wann">[[Uhrzeit]]</div>
+        <div class="kf-was"><b>[[Weiterer Programmpunkt]]</b><span>[[Ein Satz dazu.]]</span></div>
+      </div>
+
+    </div>
+    <p style="margin-top:14px;color:var(--ink-soft)">
+      <span class="platz">Zeilen, die es nicht gab, löschen. Was fehlt, ergänzen.</span>
+    </p>
+  </section>
+
+  <section class="section manifest">
+    <div class="eyebrow">Wie es weitergeht</div>
+    <h2>2027 wird <span class="red">nicht mehr getestet.</span></h2>
+    <p class="sub">
+      Die KiezKarte 2027 ist da, und der nächste Aufruf für den Kiezfonds startet am
+      [[Termin]]. Diesmal mit Vorlauf, mit Frist und mit einer öffentlichen Entscheidung,
+      die an das Fest der Demokratie oder das Brückenfest gekoppelt ist.
+    </p>
+    <a class="kf-zurueck" href="index.html">← Zur Schöneweider KiezKarte</a>
+  </section>
+
+  <section class="section">
+    <div class="kf-box">
+      <div class="eyebrow">Danke</div>
+      <h3>An die Partnerbetriebe.</h3>
+      <p style="margin-top:12px">
+        Zwanzig Betriebe in Nieder- und Oberschöneweide haben die KiezKarte im Testjahr
+        getragen. Ohne ihre Rabatte gäbe es die Karte nicht, und ohne die Karte gäbe es
+        diesen Fonds nicht. <a class="kk-link" href="index.html#partner">Alle Partner ansehen →</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Zum Nachlesen</div>
+    <h2>Das Verfahren 2026 <span class="red">im Wortlaut.</span></h2>
+    <p class="sub">
+      So stand es im Aufruf, der am 19. November veröffentlicht wurde. Wir lassen es stehen,
+      damit nachvollziehbar bleibt, wonach entschieden wurde.
+    </p>
+    <div class="beleg">
+<div class="kf-leiter">
+
+      <div class="kf-schritt">
+        <div class="kf-wann">ab sofort</div>
+        <div class="kf-was"><b>Aufruf</b><span>Öffentliche Ausschreibung über Website, Newsletter und Aushänge bei den Partnerbetrieben.</span></div>
+      </div>
+
+      <div class="kf-schritt">
+        <div class="kf-wann">bis 3. Dezember</div>
+        <div class="kf-was"><b>Bewerbung</b><span>Eine Seite: Was? Wann? Wo? Für wen? Was kostet es, und was habt ihr woanders versucht? Schickt sie an <a class="kk-link" href="mailto:antrag@schoeneweider-kiezkarte.de"><b>antrag@schoeneweider-kiezkarte.de</b></a> Rückfragen beantworten wir unter derselben Adresse.</span></div>
+      </div>
+
+      <div class="kf-schritt">
+        <div class="kf-wann">5. Dezember, 19 Uhr</div>
+        <div class="kf-was"><b>Öffentliche Vergabeveranstaltung</b><span>Im Industriesalon. Alle Bewerbungen werden vorgestellt und gemeinsam beraten. Wer sich bewirbt, stellt sein Projekt selbst vor. Wer an dem Abend nicht kann, sagt uns das vorher, dann stellen wir es für ihn vor.</span></div>
+      </div>
+
+      <div class="kf-schritt">
+        <div class="kf-wann">am selben Abend</div>
+        <div class="kf-was"><b>Abstimmung</b><span>Es stimmen alle ab, die eine KiezKarte haben, und die Partnerbetriebe. Karte am Eingang vorzeigen, dafür gibt es dort einen Stimmzettel. Das Ergebnis ist die Empfehlung an den Vorstand des Industriesalons.</span></div>
+      </div>
+
+      <div class="kf-schritt">
+        <div class="kf-wann">am selben Abend</div>
+        <div class="kf-was"><b>Entscheidung</b><span>Der Vorstand beschließt noch am selben Abend und gibt das Ergebnis öffentlich bekannt. Jede Bewerbung bekommt danach eine kurze schriftliche Begründung.</span></div>
+      </div>
+
+      <div class="kf-schritt">
+        <div class="kf-wann">nach dem 5. Dezember</div>
+        <div class="kf-was"><b>Offenlegung</b><span>Wir legen offen, was im Testjahr eingenommen und was ausgegeben wurde, was wir ausschütten, wer gefördert wird und wie es 2027 weitergeht.</span></div>
+      </div>
+
+      <div class="kf-schritt">
+        <div class="kf-wann">wenn die Projekte gelaufen sind</div>
+        <div class="kf-was"><b>Rechenschaft</b><span>Öffentliche Zusammenfassung: „Was wurde mit eurem Geld gemacht?“</span></div>
+      </div>
+
+    </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-row">
+      <div class="footer-logos">
+        <img class="logo-is" src="industriesalon_logo.png" alt="Industriesalon Schöneweide">
+        <img class="logo-werk" src="werk116_logo.png" alt="WERK 116">
+      </div>
+      <div class="footer-info">
+        Eine Initiative von <b>Industriesalon Schöneweide</b> &amp; <b>WERK 116</b><br>
+        Unterstützt von der <b>Kiezkasse Niederschöneweide</b><br>
+        Idee: <b>Dirk Sarnoch</b> · Jurypreis Futura Biennale 2025
+      </div>
+      <div class="footer-slogan">Einkaufen · Sparen · Kiez stärken.</div>
+    </div>
+    <div class="footer-legal">
+      <a href="index.html">KiezKarte</a> ·
+      <a href="2026-08-03_SALON_partner.html">Für Partner</a> ·
+      <a href="impressum.html">Impressum</a> ·
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
